@@ -9,10 +9,9 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="INNOMEGA offers innovative technology solutions for businesses looking to transform their operations.
-Specializing in digital transformation, we provide cutting-edge services in software development, quotation systems and image solutions tailored
-to your business needs. Discover how we can drive your business forward.">
-<meta name="keywords" content="">
+<meta name="description" content="INNOMEGA offers innovative technology solutions for software development, quotation systems and
+ image solutions.">
+<meta name="keywords" content="aerial drone video, AI, artificial intelligence, business process automation, content management system, digital marketing, e-commerce, e-mail marketing, image solutions, IT consulting, IT solutions, lead management, PDF quotation system, software development, web development, web solutions">
 <meta name="format-detection" content="telephone=no">
 <title>INNOMEGA AB | Home</title>
 <link href="css/tailwind.css" rel="stylesheet">
@@ -28,14 +27,14 @@ gtag('config', 'G-HP3FV2VM9W');
 <link href="themes/imx/css/navscroll.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- AlpineJS Plugins -->
-<script defer src="https://unpkg.com/@alpinejs/ui@3.13.0-beta.0/dist/cdn.min.js"></script>
+<!---<script defer src="https://unpkg.com/@alpinejs/ui@3.13.0-beta.0/dist/cdn.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/mask@3.x.x/dist/cdn.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
 <script defer src="https://unpkg.com/@alpinejs/focus@3.13.0/dist/cdn.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/morph@3.x.x/dist/cdn.min.js"></script>
-<script defer src="https://unpkg.com/alpinejs@3.13.0/dist/cdn.min.js"></script>
+<script defer src="https://unpkg.com/alpinejs@3.13.0/dist/cdn.min.js"></script>--->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" referrerpolicy="no-referrer"></script>
 <link rel="shortcut icon" href="https://www.innomega.se/themes/imx/images/ico/favicon64.ico">
 <style>.vimeo {
@@ -134,41 +133,20 @@ x-data="{ open: false }"
 <div class="">
 <a href="index.html" class="pt-5 mt-1 text-2xl font-normal michroma text-sky-800 dark:text-sky-500 ">INNOMEGA</a>
 </div>
-<div class="items-center flex-shrink-0 hidden space-x-1 md:flex ">
-<a href="#webbutveckling" class="px-3 py-4 hover:text-sky-900 dark:hover:text-sky-500">
-<span class="hidden xl:inline">Webbutveckling</span>
-<span class="inline xl:hidden">Webb</span>
-</a>
-<a href="#siljanfoto" class="px-3 py-4 hover:text-sky-900 dark:hover:text-sky-500">siljanfoto</a>
-<a href="#redovisning" class="px-3 py-4 hover:text-sky-900 dark:hover:text-sky-500">Redovisning</a>
-<a href="#om_innomega" class="px-3 py-4 hover:text-sky-900 dark:hover:text-sky-500">Om oss</a>
-<a href="#zkfonline" class="px-3 py-4 hover:text-sky-900 dark:hover:text-sky-500"><img
-src="https://flagcdn.com/w20/de.png"
-srcset="https://flagcdn.com/w40/de.png 2x"
-width="20"
-alt="Inhalt auf Deutsch" class="hidden mr-2 xl:inline"> ZKFonline</a>
-</div>
-</div> 
 <div class="flex items-center space-x-4">
 <div class="justify-center hidden mt-0 space-x-1 lg:flex">
-<!-- Swedish Flag -->
-<a href="index.html" title="Svenska">
-<img src="https://flagcdn.com/w20/se.png"
-srcset="https://flagcdn.com/w40/se.png 2x"
-alt="Svenska" class="w-6 h-4 mr-2 border border-gray-400 dark:border-white xl:inline">
-</a>
 <!-- German Flag -->
-<a href="de/index.html" title="Deutsch">
+<!--- <a href="de/index.html" title="Deutsch">
 <img src="https://flagcdn.com/w20/de.png"
 srcset="https://flagcdn.com/w40/de.png 2x"
 alt="Deutsch" class="w-6 h-4 mr-2 border border-gray-400 dark:border-white xl:inline">
-</a>
+</a>--->
 <!-- English Flag -->
-<a href="en/index.html" title="English">
+<!--- <a href="en/index.html" title="English">
 <img src="https://flagcdn.com/w20/gb.png"
 srcset="https://flagcdn.com/w40/gb.png 2x"
 alt="English" class="w-6 h-4 mr-2 border border-gray-400 dark:border-white xl:inline">
-</a>
+</a>--->
 </div>
 <!-- Toggle switch begins -->
 <div class="flex items-center mx-8 space-x-1">
@@ -196,19 +174,19 @@ alt="English" class="w-6 h-4 mr-2 border border-gray-400 dark:border-white xl:in
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
 </svg>
 </button>
-</div>	</div> 
+</div>	</div>
 </div>
 <!-- Mobile menu -->
 <div class="md:hidden" :class="{'block': open, 'hidden': !open}" @click.away="open = false" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
 <div class="px-2 pt-2 pb-3 space-y-1 bg-gray-800 sm:px-3">
 <a href="#webbutveckling" @click="open = false" class="block px-3 py-2 text-base font-medium text-white rounded-md hover:text-sky-500 hover:bg-gray-700">Webbutveckling</a>
 <a href="#rullvagnar" @click="open = false" class="block px-3 py-2 text-base font-medium text-white rounded-md hover:text-sky-500 hover:bg-gray-700">Rullvagnar</a>
-<a href="#redovisning" @click="open = false" class="block px-3 py-2 text-base font-medium text-white rounded-md hover:text-sky-500 hover:bg-gray-700">Redovisning</a>
+<!--- <a href="#redovisning" @click="open = false" class="block px-3 py-2 text-base font-medium text-white rounded-md hover:text-sky-500 hover:bg-gray-700">Redovisning</a>--->
 <a href="#siljanfoto" @click="open = false" class="block px-3 py-2 text-base font-medium text-white rounded-md hover:text-sky-500 hover:bg-gray-700">siljanfoto</a>
-<a href="#om_innomega" @click="open = false" class="block px-3 py-2 text-base font-medium text-white rounded-md hover:text-sky-500 hover:bg-gray-700">Om INNOMEGA</a>
-<a href="#zkfonline" @click="open = false" class="flex items-center px-3 py-2 text-base font-medium text-white rounded-md hover:text-sky-500 hover:bg-gray-700">
+<!---<a href="#om_innomega" @click="open = false" class="block px-3 py-2 text-base font-medium text-white rounded-md hover:text-sky-500 hover:bg-gray-700">Om INNOMEGA</a>--->
+<!--- <a href="#zkfonline" @click="open = false" class="flex items-center px-3 py-2 text-base font-medium text-white rounded-md hover:text-sky-500 hover:bg-gray-700">
 <img src="https://flagcdn.com/w20/de.png" srcset="https://flagcdn.com/w40/de.png 2x" width="20" alt="Germany" class="inline pl-6"> ZKFonline
-</a>
+</a>--->
 </div>
 </div>
 </nav>
@@ -235,7 +213,7 @@ src="themes/imx/images/ai/Tech_AI_intelligence_mesh_on_slate_gradient_background
 alt="AI - INNOMEGA Transformative Web Solutions"
 class="ring-1 ring-cyan-300"/>
 </div>
-</div> 
+</div>
 </section>
 <section class="px-8 py-2 pb-32 mb-0 bg-local bg-center bg-no-repeat bg-cover pt-44 bg-slate-900 text-cyan-400 scroll-mt-2">
 <p class="max-w-4xl mx-auto mt-4 text-4xl italic font-thin text-transparent bg-clip-text bg-gradient-to-b from-cyan-100 to-purple-400">Coding is not about a particular computer
@@ -246,7 +224,7 @@ devising logical solutions, and thinking critically.
 </section>
 </div>
 <div class="relative">
-<section
+<!--- <section
 role="article"
 lang="sv"
 id="webbutveckling"
@@ -268,10 +246,10 @@ Vi är experter på tekniska konfigurationslösningar, som erbjuder skräddarsyd
 <div class="text-xl text-slate-900 dark:text-slate-400 ">Marknadsför ditt företag effektivt och GDPR-säkert med verifierad e-post.<div/>
 </div>
 </div>
-</section>
+</section> --->
 </div>
 <div class="relative">
-<section role="article" lang="sv" id="success_stories"
+<!--- <section role="article" lang="sv" id="success_stories"
 class="px-8 pt-16 pb-16 mt-0 text-white scroll-mt-24 bg-slate-950">
 <div class="container px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
 <h2 class="py-2 mb-8 text-3xl font-light text-transparent bg-clip-text bg-gradient-to-r from-sky-200 to-sky-400 md:text-4xl">
@@ -424,9 +402,9 @@ Gå framåt med moderna webbsystem och professionellt bildmaterial. Boka ett mö
 </div>
 </div>
 </div>
-</div> 
 </div>
-</section>
+</div>
+</section> --->
 </div>
 <div class="relative">
 <section role="article" lang="sv" id="siljanfoto" class="text-white bg-black py-36 ">
@@ -442,74 +420,9 @@ Gå framåt med moderna webbsystem och professionellt bildmaterial. Boka ett mö
 <h3 class="block pb-8 text-2xl">Videoproduktion // Företagsfotografi</h3>
 <h1 class="text-4xl font-extrabold tracking-tight text-left sm:text-5xl lg:text-6xl">
 <h2 class="block mb-16 text-4xl font-light text-white md:font-thin sm:text-5xl sm:tracking-wide lg:text-7xl">
-siljanfoto
+    siljanfoto
 </h2>
-<p class="hidden my-4 text-2xl font-semibold md:text-3xl text-slate-200">
-Företagstjänster (utdrag):
-</p>
-<div class="grid grid-cols-1 gap-8 my-12 text-xl md:grid-cols-2 lg:grid-cols-3">
-<div class="space-y-4">
-<h4 class="text-2xl">Professionella porträtt<br>- på er arbetsplats</h4>
-<p class="text-gray-400">Förnya din professionella image med <span class="text-white">skräddarsydda affärsporträtt</span> tagna direkt på din arbetsplats. Vi erbjuder personlig och anpassad fotografering som fångar din unika professionella karaktär, perfekt för LinkedIn och företagsprofilering.</p>
 </div>
-<div class="space-y-4">
-<h4 class="text-2xl">Cinematiska drönarvideo för enastående perspektiv</h4>
-<p class="text-gray-400">Ta din visuella berättelse till nya höjder med vår cinematiska drönarvideotjänst.
-Vi fångar imponerande och dynamiska vyer från luften som <span class="text-white">ger ditt
-projekt en spektakulär dimension</span>.
-Perfekt för reklamfilmer, evenemang, fastighetspresentationer och även inspektioner.
-</p>
-</div>
-<div class="space-y-4">
-<h4 class="text-2xl">Instruktionsvideo för effektiv personalutbildning och introduktion</h4>
-<p class="text-gray-400">
-Optimera onboarding och personalutbildning med koncisa och informativa instruktionsvideor.
-Perfekta för <span class="text-white">snabb och effektiv inlärning av nya medarbetare</span> i ditt företag.
-Satsa på en modern webb-baserad utbildningslösning.</p>
-</div>
-</div>
-<div class="hidden p-8 shadow-lg shadow-sky-500/60">
-<p class="block pt-8 my-4 text-2xl font-light md:text-3xl text-slate-300">
-Utrustning:
-</p>
-<ul class="mb-12 text-xl list-disc list-inside">
-<li>
-Panasonic EVA1 Super 35mm 4K (5.7K sensor, dual-ISO, 10bit), Røde mikrofoner, Atomos Ninja V.
-</li>
-<li>
-Mavic 3 (Hasselblad kamera + 7x zoom kamera för inspektionsarbeten) med DJI RC Pro
-</li>
-<li>
-Canon och Nikon systemkameror (Canon R6 Mark 2, Nikon D4) GoPro kameror med 5.7k upplösning.
-</li>
-<li>
-Profoto blixtsystem.
-</li>
-</ul>
-<div class="grid hidden grid-cols-1 gap-4 my-12 md:grid-cols-3">
-<div class=""><strong>Panasonic AU-EVA1</strong> är en professionell videokamera med 5.7K Super 35 mm sensor med Dual native ISO-teknik. Inspelning görs på SD-kort upp till 4K 60p i 4:2:2 10-bitar 400 Mbit/s.
-Alternativt kan inspelningen ske på en Atomos Ninja V i upp till 5.7k ProRes. EVA1 kan även spela in upp till 240fps i FullHD.</div>
-<div class=""><strong>DJI Mavic 3</strong> är en semiprofessionell drönare med Hasselblad objektiv som spelar in 5.7K i D-Log. Den har även ett 7x optiskt zoom objektiv för inspektioner eller om man inte kan flyga nära det objekt som ska filmas.</div>
-<div class=""><strong>GoPro 10</strong> är en ultraliten, vattentät kamera som kan fästas på alla möjliga sätt för inspelning av vinklar eller områden där andra kameror inte kan användas. Även den spelar in i 5.7k och HDR.
-Speciella tillbehör gör det möjligt att använda professionelle externa mikrofoner och videoljus.
-</div>
-</div>
-</div>
-<div class="flex items-center mx-auto my-12">
-<a href="https://www.siljanfoto.se" target="_blank" type="button" class="inline-flex mx-auto items-center gap-x-2 rounded-md bg-sky-600 px-3.5 py-2.5 text-md font-semibold text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600">
-Besök siljanfoto.se
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-</svg>
-</a>
-</div>
-<p class="max-w-3xl pt-24 pb-8 mx-auto text-lg text-center text-gray-500">
-Obs. Vi erbjuder ej körkort-, passbild-, eller bröllopsfotografering för privatpersoner.
-<br>
-Specialpriser och pro-bono arbeten för organisationer inom sjukvård-, räddningstjänster mfl. tillhandahålls flera gånger om året.
-Kontakta oss gärna för mer information.
-</p>
-</h1>
 </div>
 </div>
 </div>
@@ -517,7 +430,7 @@ Kontakta oss gärna för mer information.
 </section>
 </div>
 <div class="relative">
-<section role="article" lang="sv" id="redovisning" class="px-8 py-16 text-purple-50 dark:text-purple-100 scroll-mt-2 bg-gradient-to-br from-purple-800 to-purple-600 dark:from-purple-950 dark:to-purple-800">
+<!--- <section role="article" lang="sv" id="redovisning" class="px-8 py-16 text-purple-50 dark:text-purple-100 scroll-mt-2 bg-gradient-to-br from-purple-800 to-purple-600 dark:from-purple-950 dark:to-purple-800">
 <div class="px-4 pt-16 mx-auto pb-36 max-w-7xl sm:py-24 sm:px-6 lg:px-8 lg:flex lg:justify-between">
 <div class="">
 <p class="pb-8 text-lg md:text-xl michroma">INNOMEGA</p>
@@ -541,11 +454,11 @@ Genom att minimera tiden du lägger på bokföring, frigörs mer tid för dig at
 <div class="rounded bg-purple-200 p-4 text-purple-900 dark:text-purple-300 dark:bg-purple-900 dark:border dark:border-purple-400 text-lg">
 Vi har gedigen erfarenhet av att arbeta med små aktiebolag och enskilda firmor, samt hantering av momsredovisning både inom och utanför EU.
 </div>
-</div> 
 </div>
-</section>
 </div>
-<section role="article" lang="en" about="/en/node/2546225" id="zkfonline"
+</section> --->
+</div>
+<!--- <section role="article" lang="en" about="/en/node/2546225" id="zkfonline"
 class="relative min-h-full px-8 pt-40 pb-16 text-white scroll-mt-2 bg-gradient-to-br from-slate-800 to-sky-700">
 <div class="px-8 py-16 mx-auto max-w-7xl md:pt-24">
 <div class="text-xl">
@@ -591,12 +504,12 @@ zahlbar Quartalsweise oder Jahresweise, danach Kündigung zu jedem Quartal mögl
 </h2>
 </div>
 </div>
-</section>
+</section> --->
 <div class="relative">
 <section role="article" lang="en" about="/en/node/2546225" id="om_innomega"
 class="px-8 pb-16 scroll-mt-24 bg-gradient-to-br from-slate-950 to-slate-800">
 <div class="px-4 pt-16 mx-auto text-gray-400 max-w-7xl sm:py-24 sm:px-6 lg:px-8 lg:flex lg:justify-between">
-<div class="">
+<div class=""> <!---
 <p class="pb-8 text-2xl font-normal">Om oss</p>
 <p class="mt-5 text-3xl font-normal text-gray-300">
 Sedan starten 1999 i Tyskland och vår etablering i Sverige 2013, har vi haft som mål att uppnå <span class="">100% kundnöjdhet</span>.
@@ -604,25 +517,15 @@ Vi engagerar oss i partnerskap med kunder som värderar <span class=" text-stron
 Våra tjänster inkluderar leverans av <span class="text-white">webbinnehållshanteringssystem</span> och <span class="text-white">videoproduktioner</span> till
 bland annat ledande tyska tillverkare av
 <span class="text-white">specialfordon för räddningstjänster</span> och <span class="text-white">norges framstående leverantör av nödströmssystem</span>.
-</p>
+</p> --->
 </div>
 </div>
 <div class="container max-w-6xl gap-8 px-2 mx-auto sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 md:grid-cols-2">
 <div class="py-6 mb-2 text-xl font-light text-gray-100 md:mb-12 md:text-2xl reveal fadeInUp">
-Jonas Eriksson
 </div>
 <div class="w-56 py-6 mb-2 text-xl font-light text-gray-100 md:mb-12 md:text-2xl reveal fadeInUp">
-Nadia Eriksson
-<a href="https://www.linkedin.com/in/nadia-eriksson-99a5657/" class="inline dark:text-gray-300 hover:text-blue-800 dark:hover:text-gray-300"
-target="_blank">
-<p class="flex flex-row space-x-4 text-lg text-">
-LinkedIn profile&nbsp;&nbsp;&nbsp;
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-</svg>
-</p>
-</a>
+
 </div>
 </div>
 </div>
@@ -639,123 +542,26 @@ LinkedIn profile&nbsp;&nbsp;&nbsp;
 <h3 class="text-lg michroma text-slate-700 dark:text-white">INNOMEGA</h3>
 </a>
 <div class="font-normal">
-<span class="">INNOMEGA AB</span>
-<span class="whitespace-nowrap">
-<br>Björkbergsvägen 67
-</span><br>
-793 60 Siljansnäs<br>
-</div>
-<div class="font-normal">
-<a href="https://www.innomega.se/kontakt" class="text-sm font-semibold text-gray-800 dark:text-gray-300 hover:text-blue-600">
-Kontakt
-</a>
 </div>
 </div>
 <div id="insideGridColB" class="pl-4 font-normal">
-<span class="sr-only">Telefon</span>
-<a class="text-sm font-semibold text-gray-800 dark:text-gray-300 hover:text-blue-600"
-href="tel:+46727123337">
-+46 727 123 337 <span class="text-xs text-gray-500">(inga telefonförsäljare tack)</span>
-</a>
-<span class="sr-only">INNOMEGA epost</span>
-<a class="text-sm font-semibold text-gray-800 dark:text-gray-300 hover:text-blue-600">
-kontakt@innomega.se
-</a>
-<p class="text-sm ">Välkommen med din förfrågan!</p>
 </div>
-</div> 
-</div> 
+</div>
+</div>
 <div class="pl-4 ">
 <div class="grid grid-cols-8 gap-2">
 <div class="hidden col-span-4">
-<ul class="space-y-2">
-<a href="#rullvagnar" class="">
-<li class=" mb-2 text-base font-semibold text-black dark:text-gray-300 hover:text-blue-600">
-Rullvagnar
-</li>
-</a>
-<a href="#rullvagnar" class="">
-<li class="mb-1 text-sm text-gray-800 dark:text-gray-300 hover:text-blue-600">
-För räddningstjänst
-</li>
-</a>
-<a href="#rullvagnar" class="">
-<li class="mb-1 text-sm text-gray-800 dark:text-gray-300 hover:text-blue-600">
-För transport och lager
-</li>
-</a>
-<a href="#rullvagnar" class="">
-<li class="mb-1 text-sm text-gray-800 dark:text-gray-300 hover:text-blue-600">
-För sjukhus / labb
-</li>
-</a>
-<a href="#rullvagnar" class="">
-<li class="mb-1 text-sm text-gray-800 dark:text-gray-300 hover:text-blue-600">
-För industri / service
-</li>
-</a>
-<a href="#rullvagnar" class="">
-<li class="mb-1 text-sm text-gray-800 dark:text-gray-300 hover:text-blue-600">
-Tillbehör / Lastsäkring
-</li>
-</a>
-</ul>
 </div>
 <div class="col-span-4 ">
-<ul class="space-y-2">
-<a href="#" class="">
-<li class=" mb-2 text-base font-semibold text-black dark:text-gray-300 hover:text-blue-600">
-Tjänster
-</li>
-</a>
-<a href="#redovisning" class="font-normal">
-<li class="mb-1 text-sm text-gray-800 dark:text-gray-300 hover:text-blue-600">
-Redovisning
-</li>
-</a>
-<a href="#web" class="font-normal">
-<li class="mb-1 text-sm text-gray-800 dark:text-gray-300 hover:text-blue-600">
-Webbkonfiguratorer
-</li>
-</a>
-<a href="#web" class="font-normal">
-<li class="mb-1 text-sm text-gray-800 dark:text-gray-300 hover:text-blue-600">
-Webbutveckling Företag
-</li>
-</a>
-<a href="#siljanfoto" class="font-normal">
-<li class="mb-1 text-sm text-gray-800 dark:text-gray-300 hover:text-blue-600">
-Videoproduktioner / Foto
-</li>
-</a>
-</ul>
 </div>
 <div class="col-span-4">
-<ul class="space-y-2">
-<a href="#zkfonline" class="">
-<li class=" mb-2 text-base font-semibold text-black dark:text-gray-300 hover:text-blue-600">
-ZKFonline
-</li>
-</a>
-<a href="#zkfonline" class="font-normal ">
-<li class="mb-1 text-sm text-gray-800 dark:text-gray-300 hover:text-blue-600">
-Internetseiten für Mitgliedsbetriebe
-</li>
-</a>
-<p>ZKFonline Tel: 0931 / 46621340 </p>
-</ul>
 </div>
-</div> 
-</div> 
-</div> 
+</div>
+</div>
+</div>
 <div class="pt-4 mt-8 font-normal md:flex md:items-center md:justify-between">
 <div class="flex space-x-6 sm:order-2">
-<a class="text-xs text-gray-800 hover:text-blue-600 dark:text-gray-300 pr-4 flex-grow md:flex-shrink inline-block " href="impressum/index.html">
-Impressum
-</a>
-<a class="text-xs text-gray-800 hover:text-blue-600 dark:text-gray-300 pr-4 flex-grow md:flex-shrink inline-block " href="datenschutzhinweis/index.html">
-Datenschutz
-</a>
+
 </div>
 <p class="mt-4 text-xs text-gray-800 hover:text-blue-600 dark:text-gray-300 pr-4 flex-grow md:flex-shrink inline-block md:mt-0 px-4 md:order-1">
 <a class="hidden md:block">Copyright &copy;
@@ -769,8 +575,8 @@ INNOMEGA AB. Alla rättigheter förbehålles.
 </a>
 </p>
 </div>
-</div> 
-</div> 
+</div>
+</div>
 <script src="themes/imx/js/scroll.js"></script>
 <script src="https://instant.page/5.1.0" type="module"></script>
 <script src="core/modules/v1/gatedasset/assets/js/module.js"></script>
