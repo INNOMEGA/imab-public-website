@@ -124,69 +124,20 @@ dtLocale:"de"
 id="homepage"
 class="home">
 <header>
-<nav class="z-10 py-4 pl-8 pr-4 bg-gray-200 dark:bg-gray-800"
+<nav class="z-10 py-4 pl-8 pr-4 bg-gray-950"
 x-data="{ open: false }"
 >
 <div class="mx-auto max-w-7xl">
-<div class="flex justify-between text-gray-900 dark:text-gray-200">
+<div class="flex justify-between text-gray-200">
 <div class="flex items-center space-x-6">
 <div class="">
-<a href="index.html" class="pt-5 mt-1 text-2xl font-normal michroma text-sky-800 dark:text-sky-500 ">INNOMEGA</a>
+<a href="index.html" class="pt-8 mt-1 text-2xl font-normal michroma text-white ">INNOMEGA</a>
 </div>
 <div class="flex items-center space-x-4">
 <div class="justify-center hidden mt-0 space-x-1 lg:flex">
-<!-- German Flag -->
-<!--- <a href="de/index.html" title="Deutsch">
-<img src="https://flagcdn.com/w20/de.png"
-srcset="https://flagcdn.com/w40/de.png 2x"
-alt="Deutsch" class="w-6 h-4 mr-2 border border-gray-400 dark:border-white xl:inline">
-</a>--->
-<!-- English Flag -->
-<!--- <a href="en/index.html" title="English">
-<img src="https://flagcdn.com/w20/gb.png"
-srcset="https://flagcdn.com/w40/gb.png 2x"
-alt="English" class="w-6 h-4 mr-2 border border-gray-400 dark:border-white xl:inline">
-</a>--->
+
 </div>
-<!-- Toggle switch begins -->
-<!---<div class="flex items-center mx-8 space-x-1">
-<span class="text-sm text-gray-800 ml- dark:text-gray-500">
-<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-</svg>
-</span>
-<label for="toggle" class="flex items-center h-5 p-1 duration-300 ease-in-out bg-gray-300 rounded-full cursor-pointer w-9 dark:bg-gray-600">
-<div class="w-4 h-4 duration-300 ease-in-out transform bg-white rounded-full shadow-md toggle-dot dark:translate-x-3"></div>
-</label>
-<span class="text-sm text-gray-400 dark:text-white">
-<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-</svg>
-</span>
-<input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode" />
-</div>--->
-<!-- Toggle switch ends -->
-</div>
-<!-- Mobile menu button -->
-<div class="flex items-center mx-4 text-black md:hidden">
-<button @click="open = !open" class="mobile-menu-button">
-<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-</svg>
-</button>
-</div>	</div>
-</div>
-<!-- Mobile menu -->
-<div class="md:hidden" :class="{'block': open, 'hidden': !open}" @click.away="open = false" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
-<div class="px-2 pt-2 pb-3 space-y-1 bg-gray-800 sm:px-3">
-<a href="#webbutveckling" @click="open = false" class="block px-3 py-2 text-base font-medium text-white rounded-md hover:text-sky-500 hover:bg-gray-700">Webbutveckling</a>
-<!--- <a href="#redovisning" @click="open = false" class="block px-3 py-2 text-base font-medium text-white rounded-md hover:text-sky-500 hover:bg-gray-700">Redovisning</a>--->
-<a href="#siljanfoto" @click="open = false" class="block px-3 py-2 text-base font-medium text-white rounded-md hover:text-sky-500 hover:bg-gray-700">siljanfoto</a>
-<!---<a href="#om_innomega" @click="open = false" class="block px-3 py-2 text-base font-medium text-white rounded-md hover:text-sky-500 hover:bg-gray-700">Om INNOMEGA</a>--->
-<!--- <a href="#zkfonline" @click="open = false" class="flex items-center px-3 py-2 text-base font-medium text-white rounded-md hover:text-sky-500 hover:bg-gray-700">
-<img src="https://flagcdn.com/w20/de.png" srcset="https://flagcdn.com/w40/de.png 2x" width="20" alt="Germany" class="inline pl-6"> ZKFonline
-</a>--->
-</div>
+
 </div>
 </nav>
 </header>
@@ -195,28 +146,20 @@ alt="English" class="w-6 h-4 mr-2 border border-gray-400 dark:border-white xl:in
 role="article"
 lang="en"
 id="ai"
-class="h-screen px-8 py-2 pb-32 mb-0 bg-local bg-center bg-no-repeat bg-cover pt-44 bg-slate-900 text-cyan-400 scroll-mt-2 bg-fade-bg-ai-dark"
+class="h-screen px-8 py-2 pb-32 mb-0 bg-local bg-center bg-no-repeat bg-cover pt-44 bg-slate-900 text-cyan-400 scroll-mt-2 bg-fade-bg-ai-dark opacity-10"
 >
 <div class="mx-auto md:pt-24 max-w-7xl">
-<div class="grid grid-cols-1 lg:grid-cols-12">
-<div class="lg:col-span-6">
-    <button class="mb-16 lg:mb-4 cursor-none"><span class="michroma">INNOMEGA</span> NextGen Web Solutions</button>
+<div class="">
+<div class="">
+    <button class="mb-16 text-4xl font-light lg:mb-4 cursor-none"><span class="michroma">INNOMEGA</span> NextGen Web Solutions</button>
+    <p class="my-6 text-2xl font-light text-cyan-100">
+        In 2025 we are only servicing existing clients.
+    </p>
+</div>
 
-<h2 class="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-cyan-600 sm:text-5xl sm:tracking-tight">·– ·  / ·- ·-· ·  / -··· ··- ··· -.–</h2>
-<p class="my-6 text-2xl md:text-2xl text-cyan-100">
-We are currently fully booked and do not take on new clients in 2025.
-</p>
-<button class="mb-16 lg:mb-4 cursor-none">Existing clients have our contact details.</button>
-</div>
-<div class="ml-4 lg:col-span-6">
-<!---<img
-src="themes/imx/images/ai/Tech_AI_intelligence_mesh_on_slate_gradient_background.png"
-alt="AI - INNOMEGA Transformative Web Solutions"
-class="ring-1 ring-cyan-300"/>--->
-</div>
 </div>
 </section>
-<section class="px-8 py-2 pb-32 mb-0 bg-local bg-center bg-no-repeat bg-cover pt-44 bg-slate-900 text-cyan-400 scroll-mt-2">
+<section class="px-8 py-2 pb-32 mb-0 bg-local bg-center bg-no-repeat bg-cover pt-44 bg-slate-950 text-cyan-400 scroll-mt-2">
 <p class="max-w-4xl mx-auto mt-4 text-4xl italic font-thin text-transparent bg-clip-text bg-gradient-to-b from-cyan-100 to-purple-400">Coding is not about a particular computer
 language or even about writing programs per se. It's about cultivating a mindset of computational thinking:
 enhancing your ability to break down complex problems into manageable components,
@@ -225,29 +168,7 @@ devising logical solutions, and thinking critically.
 </section>
 </div>
 <div class="relative">
-<!--- <section
-role="article"
-lang="sv"
-id="webbutveckling"
-class="px-8 py-2 pt-24 mb-0 bg-local bg-gray-300 text-slate-800 scroll-mt-2 pb-36 dark:bg-gray-950 dark:text-gray-300"
->
-<div class="mx-auto md:pt-16 max-w-7xl lg:flex lg:justify-between">
-<div class="">
-<p class="pb-8 text-xl michroma">INNOMEGA</p>
-<h2 class="text-4xl font-semibold text-slate-700 dark:text-slate-400 sm:text-5xl sm:tracking-tight lg:text-6xl">Webbutveckling för företag</h2>
-<p class="mt-5 text-2xl md:text-3xl text-slate-800 dark:text-slate-400 ">
-Vi är experter på tekniska konfigurationslösningar, som erbjuder skräddarsydda anpassningar och automatiserade, kundanpassade PDF-offerter.</p>
-</div>
-</div>
-<div>
-<div class="w-full mx-auto mt-10 space-y-10 max-w-7xl">
-<div class="text-xl text-slate-800 dark:text-slate-300 ">Hantera digitalt innehåll effektivt med ett avancerat Content Management System.<div/>
-<div class="text-xl text-slate-900 dark:text-slate-400 ">Konfigurera tekniska lösningar enkelt och skapa kundanpassade PDF-offerter med lätthet. <div/>
-<div class="text-xl text-slate-800 dark:text-slate-300 ">Integrera inkommande leads smidigt med e-handel, ekonomi- och lagersystem via API. <div/>
-<div class="text-xl text-slate-900 dark:text-slate-400 ">Marknadsför ditt företag effektivt och GDPR-säkert med verifierad e-post.<div/>
-</div>
-</div>
-</section> --->
+
 </div>
 <div class="relative">
 <!--- <section role="article" lang="sv" id="success_stories"
@@ -420,7 +341,7 @@ Gå framåt med moderna webbsystem och professionellt bildmaterial. Boka ett mö
 <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
 <h3 class="block pb-8 text-2xl">Videoproduktion // Företagsfotografi</h3>
 <h1 class="text-4xl font-extrabold tracking-tight text-left sm:text-5xl lg:text-6xl">
-<h2 class="block mb-16 text-4xl font-light text-white md:font-thin sm:text-5xl sm:tracking-wide lg:text-7xl">
+<h2 class="block mb-16 text-4xl font-light  md:font-thin sm:text-5xl sm:tracking-wide text-cyan-400 lg:text-7xl">
     siljanfoto
 </h2>
 </div>
@@ -430,92 +351,17 @@ Gå framåt med moderna webbsystem och professionellt bildmaterial. Boka ett mö
 </div>
 </section>
 </div>
-<div class="relative">
-<!--- <section role="article" lang="sv" id="redovisning" class="px-8 py-16 text-purple-50 dark:text-purple-100 scroll-mt-2 bg-gradient-to-br from-purple-800 to-purple-600 dark:from-purple-950 dark:to-purple-800">
-<div class="px-4 pt-16 mx-auto pb-36 max-w-7xl sm:py-24 sm:px-6 lg:px-8 lg:flex lg:justify-between">
-<div class="">
-<p class="pb-8 text-lg md:text-xl michroma">INNOMEGA</p>
-<h2 class="pb-4 text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-purple-400 dark:text-purple-100 md:text-4xl sm:text-5xl sm:tracking-tight lg:text-6xl">Redovisningstjänster</h2>
-<p class="mt-5 text-2xl text-purple-300 md:text-3xl">Redovisning och bokslut<br> för små och mellanstora företag</p>
-</div>
-<div class="w-full max-w-xs mt-10">
-</div>
-</div>
-<div class="container max-w-6xl px-4 mx-auto pb-36 sm:px-6 lg:px-8 ">
-<h4 class="py-2 mb-12 text-4xl font-light text-purple-200 dark:text-purple-300 reveal fadeInUp">
-Fördelar för dig som företagare:
-</h4>
-<div class="container grid grid-cols-1 gap-4 py-0 mb-0 text-xl text-white lg:grid-cols-3">
-<div class="rounded bg-purple-200 p-4 text-purple-900 dark:text-purple-300 dark:bg-purple-900 dark:border dark:border-purple-400 text-lg ">
-Modern bokföring och redovisning i molnet kombinerat med automatisering effektiviserar era processer. Mindre tid åt bokföring innebär mer tid för att optimera andra verksamhetsområden.
-</div>
-<div class="rounded bg-purple-200 p-4 text-purple-900 dark:text-purple-300 dark:bg-purple-900 dark:border dark:border-purple-400 text-lg">
-Genom att minimera tiden du lägger på bokföring, frigörs mer tid för dig att ägna åt försäljning och marknadsföring av din kärnverksamhet – och fokusera på det som du sannolikt finner roligare!
-</div>
-<div class="rounded bg-purple-200 p-4 text-purple-900 dark:text-purple-300 dark:bg-purple-900 dark:border dark:border-purple-400 text-lg">
-Vi har gedigen erfarenhet av att arbeta med små aktiebolag och enskilda firmor, samt hantering av momsredovisning både inom och utanför EU.
-</div>
-</div>
-</div>
-</section> --->
-</div>
-<!--- <section role="article" lang="en" about="/en/node/2546225" id="zkfonline"
-class="relative min-h-full px-8 pt-40 pb-16 text-white scroll-mt-2 bg-gradient-to-br from-slate-800 to-sky-700">
-<div class="px-8 py-16 mx-auto max-w-7xl md:pt-24">
-<div class="text-xl">
-<p class="pb-8">
-<img
-src="https://flagcdn.com/w20/de.png"
-srcset="https://flagcdn.com/w40/de.png 2x"
-width="40"
-alt="Germany" class="inline pb-2 pr-2">
-ZKFonline Produktinfo
-</p>
-<h2 class="hidden text-4xl font-semibold text-white md:block">Internetseiten für<br>ZKF Mitgliedsbetriebe</h2>
-<h2 class="block text-3xl font-semibold text-white md:hidden md:text-4xl">Internetseiten für<br>ZKF Mitgliedsbetriebe</h2>
-<p class="my-8 text-xl md:text-3xl text-slate-200">Ihr Rund-um-sorglos Internetauftritt<br>zum Komplettpreis von
-<span class="font-semibold text-white">2 800 EURO
-<br>für Erstellung sowie 24 Monaten Betrieb<br>
-und kostenfreien Aktualisierungen</span> durch Ihre Internet-Handwerker (das sind wir).<br>
-<span class="text-base font-normal">zzgl. ges. MWSt. Berechnung ab Lieferung der betriebsbereiten Internetpräsenz,
-zahlbar Quartalsweise oder Jahresweise, danach Kündigung zu jedem Quartal möglich.</span>
-</p>
-</div>
-<div class="w-full max-w-xs mt-10">
-</div>
-</div>
-<div class="container max-w-6xl px-4 mx-auto ">
-<div class="text-xl">
-<div class="my-1 mb-4 ">
-<div class="pb-4 text-2xl font-semibold">Vorteile:</div>
-<ul class="space-y-2 text-xl list-disc list-inside">
-<li>Kompatibel mit allen modernen Mobiltelefonen, Tablets und Desktop-Computern.</li>
-<li>Schnelle Ladezeiten dank modernster Technologie, die stets auf dem neuesten Stand gehalten wird.</li>
-<li>Inklusive Sicherheitsupdates und Aktualisierungsservice während der gesamten Laufzeit ohne zusätzliche Kosten.</li>
-<li>Hinweis: Ihre E-Mails bleiben vollständig unabhängig von Ihrer Internetseite.</li>
-</ul>
-</div>
-<div class="inline-block p-4 my-8 text-lg lg:text-2xl ">
-<h2 class="inline-block text-2xl font-light text-gray-100 ">
-<a href="index.cfm/zkfonline/index.html" class="underline decoration-sky-800 hover:bg-slate-800 hover:py-1 hover:decoration-sky-600 decoration-dashed underline-offset-2">
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline-block w-10 h-10 ">
-<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-</svg> Mehr Informationen auf unserer Produktseite
-</a>
-</h2>
-</div>
-</div>
-</section> --->
+
 
 </div>
-<div class="text-sm text-gray-800 bg-gray-100 dark:text-gray-200 dark:bg-slate-800">
+<div class="text-sm text-gray-200 bg-slate-800">
 <div class="px-4 pt-8 pb-2 mx-auto max-w-screen-2xl">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-0 gap-y-8">
 <div class="">
 <div class="">
 <div class="pl-4 space-y-4" id="insideGridColA">
 <a href="index.html">
-<h3 class="text-lg michroma text-slate-700 dark:text-white">INNOMEGA</h3>
+<h3 class="text-lg michroma dark:text-white">INNOMEGA</h3>
 </a>
 <div class="font-normal">
 </div>
@@ -527,7 +373,7 @@ zahlbar Quartalsweise oder Jahresweise, danach Kündigung zu jedem Quartal mögl
 </div>
 <div class="pt-4 mt-8 font-normal md:flex md:items-center md:justify-between">
 
-<p class="mt-4 text-xs text-gray-800 hover:text-blue-600 dark:text-gray-300 pr-4 flex-grow md:flex-shrink inline-block md:mt-0 px-4 md:order-1">
+<p class="mt-4 text-xs hover:text-blue-600 text-gray-300 pr-4 flex-grow md:flex-shrink inline-block md:mt-0 px-4 md:order-1">
 <a class="hidden md:block">Copyright &copy;
 2025
 INNOMEGA AB. Alla rättigheter förbehålles.
