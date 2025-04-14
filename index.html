@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="sv" :class="{'dark': darkMode === true}"
-class="leading-tight text-black dark:text-gray-200 scroll-smooth"
+class="leading-tight text-zinc-800 dark:text-gray-300 scroll-smooth"
 x-data="{'darkMode': true}"
 x-init="
 darkMode = JSON.parse(localStorage.getItem('darkMode'));
@@ -9,15 +9,29 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="INNOMEGA offers innovative technology solutions for software development, quotation systems and
- image solutions.">
-<meta name="keywords" content="aerial drone video, AI, artificial intelligence, business process automation, content management system, digital marketing, e-commerce, e-mail marketing, image solutions, IT consulting, IT solutions, lead management, PDF quotation system, software development, web development, web solutions">
+<meta name="description" content="INNOMEGA develops premium iOS applications with a focus on elegant design and exceptional user experiences. Based in Sweden.">
+<meta name="keywords" content="iOS app development, iOS applications, iPhone apps, iPad apps, premium apps, luxury apps, app design, user experience design, Swift, mobile development, iOS developer, Sweden, Scandinavian design">
 <meta name="format-detection" content="telephone=no">
-<title>INNOMEGA AB | Home</title>
-<link href="css/tailwind.css" rel="stylesheet">
+<title>INNOMEGA | Premium iOS App Development</title>
+<link href="src/output.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Michroma" />
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" />
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HP3FV2VM9W"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-49FSSLWE3V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-49FSSLWE3V');
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-49FSSLWE3V');
+</script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -57,7 +71,41 @@ z-index: -1;
 .full-screen-video{
 animation-fill-mode: none !important;
 }
-.michroma { font-family: Michroma;}
+.michroma {
+  font-family: Michroma;
+  letter-spacing: 0.05em; /* Adding more letter spacing for luxury feel */
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fadeIn 1.5s ease-out forwards;
+}
+.bg-gradient-ios {
+  background: linear-gradient(135deg, #18181b 0%, #3f3f46 100%);
+}
+/* Adding these new styles for increased spacing */
+.section-spacing {
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+}
+.text-spacing {
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+.luxury-heading {
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  margin-bottom: 3rem;
+}
+.icon-text-spacing {
+  margin-left: 2rem;
+}
 </style>
 <script>
 // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -74,149 +122,194 @@ localStorage.theme = 'dark'
 localStorage.removeItem('theme')
 </script>
 <!-- Matomo -->
-<!-- End Matomo Code -->
-<script type="text/javascript" src="core/modules/v1/core_assets/js/mura%EF%B9%96v=7.4.4.js" defer="defer"></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-49FSSLWE3V"></script>
 <script>
-(function(root,config){root.queuedMuraCmds=[],root.queuedMuraPreInitCmds=[],root.deferMuraInit=function(){void 0!==root.Mura&&"function"==typeof root.Mura.init?root.Mura.init(config):("function"!=typeof root.Mura&&(root.mura=root.m=root.Mura=function(o){root.queuedMuraCmds.push(o)},root.Mura.preInit=function(o){root.queuedMuraPreInitCmds.push(o)}),setTimeout(root.deferMuraInit))},root.deferMuraInit();}
-)(this,{
-loginURL:"?display=login",
-siteid:"default",
-contentid:"00000000000000000000000000000000001",
-contenthistid:"D3B1E2ED-339A-49B5-8A60A4BA8C4BF393",
-parentid:"00000000000000000000000000000000END",
-changesetid:"",
-context:"",
-nocache:0,
-assetpath:"/sites/default",
-corepath:"/core",
-fileassetpath:"/sites/default",
-themepath:"/themes/imx",
-reCAPTCHALanguage:"en",
-preloaderMarkup: "\x3Ci\x20class\x3D\x22mura\x2Dpreloader\x20fa\x20fa\x2Drefresh\x20fa\x2Dspin\x22\x3E\x3C\x2Fi\x3E",
-mobileformat: false,
-windowdocumentdomain: "",
-layoutmanager:true,
-type:"Page",
-subtype:"Default",
-queueObjects: true,
-rb:{"formrequiredwrapperclass":"","formradiolabelclass":"form-check-label","formresponsewrapperclass":"","formwrapperclass":"","formbuttoncancellabel":"Cancel","formselectclass":"form-control","formbuttonclass":"btn btn-primary","formfileclass":"form-control","formbuttonwrapperclass":"btn-group","formbuttoninnerclass":"","formcheckboxwrapperclass":"form-check","formradiowrapperclass":"form-check","formcheckboxlabelclass":"form-check-label","formbuttonnextlclass":"form-nav","forminputclass":"form-control","formradioclass":"form-check-input","formcheckboxclass":"form-check-input","formfieldlabelclass":"control-label","formtextareaclass":"form-control","formbuttonbacklabel":"Back","formbuttonsubmitclass":"form-submit btn-primary","formbuttonsubmitlabel":"Submit","formrequiredlabel":"Required","generalwrapperclass":"","formbuttonnextlabel":"Next","generalwrapperbodyclass":"","formbuttomsubmitclass":"form-submit btn btn-primary","formbuttonbackclass":"form-nav","formerrorwrapperclass":"","formbuttoncancelclass":"form-cancel btn btn-danger","formwrapperbodyclass":"","formbuttonsubmitwaitlabel":"Please Wait...","formgeneralcontrolclass":"form-control","formfieldwrapperclass":"form-group"},
-dtExample:"10.11.2024",
-dtCh:".",
-dtFormat:[1,0,2],
-dtLocale:"de"
-});
-</script></head>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-49FSSLWE3V');
+</script>
 <!-- Cookie Consent TODO: activate when going live -->
-<body
-id="homepage"
-class="home">
-<header>
-<nav class="z-10 py-4 pl-8 pr-4 bg-gray-950"
-x-data="{ open: false }"
->
-<div class="mx-auto max-w-7xl">
-<div class="flex justify-between text-gray-200">
-<div class="flex items-center space-x-6">
-<div class="">
-<a href="index.html" class="pt-8 mt-1 text-2xl font-normal michroma text-white ">INNOMEGA</a>
-</div>
-<div class="flex items-center space-x-4">
-<div class="justify-center hidden mt-0 space-x-1 lg:flex">
+<body class="bg-zinc-950 font-sans antialiased">
+  <!-- Navigation -->
+  <header class="fixed w-full z-40">
+    <nav class="bg-zinc-950 shadow-lg relative  z-40">
+      <!-- Adding a background div with higher z-index to ensure solid background -->
+      <div class="absolute inset-0 bg-zinc-950"></div>
+      <div class="max-w-7xl mx-auto px-6 py-4 relative z-10">
+        <div class="flex items-center justify-between">
+          <a href="/" class="michroma text-zinc-100 text-2xl tracking-wider">INNOMEGA</a>
+          <div class="hidden md:block">
+            <div class="flex items-center space-x-8">
+              <a href="#about" class="text-zinc-300 hover:text-zinc-100 text-sm uppercase tracking-wide">About</a>
+              <a href="#services" class="text-zinc-300 hover:text-zinc-100 text-sm uppercase tracking-wide">Services</a>
+              <a href="#contact" class="text-zinc-300 hover:text-zinc-100 text-sm uppercase tracking-wide">Contact</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-</div>
+  <!-- Hero Section -->
+  <section class="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-zinc-900 to-zinc-950" style="z-index: 1;">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-zinc-900 opacity-80"></div>
+    </div>
 
-</div>
-</nav>
-</header>
-<div class="relative">
-<section
-role="article"
-lang="en"
-id="ai"
-class="h-screen px-8 py-2 pb-32 mb-0 bg-local bg-center bg-no-repeat bg-cover pt-44 bg-slate-900 text-cyan-400 scroll-mt-2 bg-fade-bg-ai-dark opacity-10"
->
-<div class="mx-auto md:pt-24 max-w-7xl">
-<div class="">
-<div class="">
-    <button class="mb-16 text-4xl font-light lg:mb-4 cursor-none"><span class="michroma">INNOMEGA</span> NextGen Web Solutions</button>
-    <p class="my-6 text-2xl font-light text-cyan-100">
-        In 2025 we are only servicing existing clients.
-    </p>
-</div>
+    <div class="relative z-10 text-center px-6 animate-fade-in">
+      <h1 class="text-zinc-100 text-4xl md:text-5xl lg:text-6xl mb-10 luxury-heading">
+        PREMIUM APP DEVELOPMENT
+      </h1>
+      <p class="text-zinc-300 text-xl md:text-2xl max-w-2xl mx-auto mb-12 text-spacing">
+        Crafting exceptional digital experiences with precision and elegance.
+      </p>
+      <div class="mt-12">
+        <a href="#contact" class="inline-block bg-transparent hover:bg-zinc-800 text-zinc-100 border border-zinc-500 px-10 py-4 text-lg transition duration-300">
+          INQUIRE
+        </a>
+      </div>
+    </div>
+  </section>
 
-</div>
-</section>
-<section class="px-8 py-2 pb-32 mb-0 bg-local bg-center bg-no-repeat bg-cover pt-44 bg-slate-950 text-cyan-400 scroll-mt-2">
-<p class="max-w-4xl mx-auto mt-4 text-4xl italic font-thin text-transparent bg-clip-text bg-gradient-to-b from-cyan-100 to-purple-400">Coding is not about a particular computer
-language or even about writing programs per se. It's about cultivating a mindset of computational thinking:
-enhancing your ability to break down complex problems into manageable components,
-devising logical solutions, and thinking critically.
-<span class="text-sm not-italic text-white"> Steve Brown, Chief AI Officer at Abundance360</span></p>
-</section>
-</div>
-<div class="relative">
+  <!-- About Section -->
+  <section id="about" class="section-spacing bg-zinc-950">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-zinc-100 text-4xl mb-12 text-center luxury-heading">ABOUT</h2>
 
-</div>
-<div class="relative">
-<section role="article" lang="sv" id="siljanfoto" class="text-white bg-black py-36 ">
-<div class="relative">
-<div class="absolute inset-x-0 bottom-0"></div>
-<div class="px-10 mx-auto max-w-7xl">
-<div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
-<div class="absolute inset-0">
-<img class="object-cover w-full " src="themes/imx/images/siljanfoto/DJI_Mavic_3_Cine_Closeup_06.jpeg" alt="siljanfoto Cinematic FPV teaser Raptor">
-<div class="absolute inset-0 bg-slate-800 mix-blend-multiply"></div>
-</div>
-<div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
-<h3 class="block pb-8 text-2xl">Videoproduktion // Företagsfotografi</h3>
-<h1 class="text-4xl font-extrabold tracking-tight text-left sm:text-5xl lg:text-6xl">
-<h2 class="block mb-16 text-4xl font-light  md:font-thin sm:text-5xl sm:tracking-wide text-cyan-400 lg:text-7xl">
-    siljanfoto (new website 2026)
-</h2>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</div>
+      <div class="grid md:grid-cols-2 gap-20 items-center">
+        <div>
+          <p class="text-zinc-200 text-xl leading-relaxed mb-12 text-spacing">
+            INNOMEGA specializes in developing premium iOS applications that combine elegant design with exceptional functionality.
+          </p>
+          <p class="text-zinc-200 text-xl leading-relaxed text-spacing">
+            Founded on principles of quality and exclusivity, we work with a select clientele who demand the extraordinary in their digital products.
+          </p>
+        </div>
+
+        <div class="bg-zinc-900 p-12 rounded-lg">
+          <div class="space-y-12">
+            <div class="flex items-center">
+              <div class="w-16 h-16 rounded-full bg-zinc-800 flex items-center justify-center mr-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-zinc-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-zinc-100 text-xl mb-4">EXCLUSIVE</h3>
+                <p class="text-zinc-300 text-spacing">Limited client roster ensures personal attention</p>
+              </div>
+            </div>
+            <div class="flex items-center">
+              <div class="w-16 h-16 rounded-full bg-zinc-800 flex items-center justify-center mr-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-zinc-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-zinc-100 text-xl mb-4">BESPOKE</h3>
+                <p class="text-zinc-300 text-spacing">Custom solutions for unique challenges</p>
+              </div>
+            </div>
+            <div class="flex items-center">
+              <div class="w-16 h-16 rounded-full bg-zinc-800 flex items-center justify-center mr-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-zinc-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-zinc-100 text-xl mb-4">EXCELLENCE</h3>
+                <p class="text-zinc-300 text-spacing">Uncompromising quality in every detail</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section-spacing bg-zinc-950">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-zinc-100 text-4xl mb-16 text-center luxury-heading">SERVICES</h2>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="bg-zinc-900 p-12 rounded-lg transition-all duration-300 hover:bg-zinc-800">
+          <div class="h-20 w-20 rounded-full bg-zinc-700 flex items-center justify-center mb-12">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-zinc-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+            </svg>
+          </div>
+          <h3 class="text-zinc-100 text-2xl mb-8">DEVELOPMENT</h3>
+          <p class="text-zinc-400 mb-12 text-spacing">Native applications designed for performance and elegance</p>
+          <ul class="text-zinc-500 space-y-6 text-spacing">
+            <li>• iOS Applications</li>
+            <li>• AI Applications</li>
+          </ul>
+        </div>
 
 
-</div>
-<div class="text-sm text-gray-200 bg-slate-800">
-<div class="px-4 pt-8 pb-2 mx-auto max-w-screen-2xl">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-x-0 gap-y-8">
-<div class="">
-<div class="">
-<div class="pl-4 space-y-4" id="insideGridColA">
-<a href="index.html">
-<h3 class="text-lg michroma dark:text-white">INNOMEGA</h3>
-</a>
-<div class="font-normal">
-</div>
-</div>
-<div id="insideGridColB" class="pl-4 font-normal">
-</div>
-</div>
-</div>
-</div>
-<div class="pt-4 mt-8 font-normal md:flex md:items-center md:justify-between">
+        <div class="bg-zinc-900 p-12 rounded-lg transition-all duration-300 hover:bg-zinc-800">
+          <div class="h-20 w-20 rounded-full bg-zinc-700 flex items-center justify-center mb-12">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-zinc-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-zinc-100 text-2xl mb-8">STRATEGY</h3>
+          <p class="text-zinc-400 mb-12 text-spacing">Comprehensive approaches to digital transformation</p>
+          <ul class="text-zinc-500 space-y-6 text-spacing">
+            <li>• Ecosystem Planning</li>
+            <li>• Business Integration</li>
+            <li>• Scaling Your Business</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<p class="mt-4 text-xs hover:text-blue-600 text-gray-300 pr-4 flex-grow md:flex-shrink inline-block md:mt-0 px-4 md:order-1">
-<a class="hidden md:block">Copyright &copy;
-2025
-INNOMEGA AB. Alla rättigheter förbehålles.
-</a>
-<a class="block col-span-3 md:hidden">
-&copy;
-2025
-INNOMEGA AB. Alla rättigheter förbehålles.
-</a>
-</p>
-</div>
-</div>
-</div>
-<script src="themes/imx/js/scroll.js"></script>
-<script src="https://instant.page/5.1.0" type="module"></script>
+  <!-- Contact CTA -->
+  <section id="contact" class="section-spacing bg-zinc-900">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-zinc-100 text-4xl mb-12 luxury-heading">READY TO ELEVATE YOUR DIGITAL PRESENCE?</h2>
+      <p class="text-zinc-300 text-2xl mb-16 max-w-3xl mx-auto text-spacing">
+        We're accepting a limited number of projects for 2026.
+      </p>
+
+      <a href="mailto:tech@innomega.se" class="my-12 inline-block bg-transparent hover:bg-zinc-800 text-zinc-100 border border-zinc-500 px-16 py-5 text-lg transition duration-300">
+        CONTACT US
+      </a>
+
+      <p class="text-zinc-500 mt-20 text-spacing">
+        <span class="michroma">INNOMEGA</span> · Premium AI and iOS App Development
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-zinc-950 py-12">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="michroma text-zinc-200 text-xl mb-8 md:mb-0">INNOMEGA</p>
+        <p class="text-zinc-500 text-md text-spacing">
+          © 2025 INNOMEGA AB. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple scroll animation for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
