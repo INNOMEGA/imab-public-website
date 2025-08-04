@@ -42,59 +42,65 @@ gtag('config', 'G-HP3FV2VM9W');
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
-  background: #18181b;
+  background: #000000;
   min-height: 100vh;
+  perspective: 1000px;
 }
-.gradient-orb {
+/* Vision Pro inspired spatial elements */
+.spatial-layer {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.floating-element {
+  transform-style: preserve-3d;
+  animation: fadeInUp 1.2s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px) translateZ(0px);
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) translateZ(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) translateZ(10px);
+  }
+}
+.vision-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+.depth-layer-1 { transform: translateZ(10px); }
+.depth-layer-2 { transform: translateZ(20px); }
+.depth-layer-3 { transform: translateZ(30px); }
+.spatial-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(40px);
-  opacity: 0.3;
-  animation: float 6s ease-in-out infinite;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), rgba(59, 130, 246, 0.1), transparent);
+  filter: blur(1px);
+  animation: fadeInOrb 2s ease-out forwards;
+  opacity: 0;
 }
-.gradient-orb-1 {
-  width: 300px;
-  height: 300px;
-  background: linear-gradient(45deg, #3b82f6, #1e40af);
-  top: 20%;
-  right: 10%;
-  animation-delay: 0s;
-}
-.gradient-orb-2 {
-  width: 200px;
-  height: 200px;
-  background: linear-gradient(45deg, #6366f1, #4f46e5);
-  bottom: 20%;
-  left: 15%;
-  animation-delay: 2s;
-}
-.gradient-orb-3 {
-  width: 150px;
-  height: 150px;
-  background: linear-gradient(45deg, #8b5cf6, #7c3aed);
-  top: 60%;
-  right: 30%;
-  animation-delay: 4s;
-}
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px) scale(1);
+@keyframes fadeInOrb {
+  0% {
+    transform: translateZ(0px) scale(0.8);
+    opacity: 0;
   }
-  50% {
-    transform: translateY(-20px) scale(1.1);
+  100% {
+    transform: translateZ(20px) scale(1);
+    opacity: 0.4;
   }
 }
-.geometric-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: none;
-}
-.geometric-shape {
-  position: absolute;
-  border: 1px solid rgba(59, 130, 246, 0.1);
-  border-radius: 8px;
+.vision-text {
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  font-weight: 200;
+  letter-spacing: 0.02em;
 }
 .michroma {
   font-family: Michroma;
@@ -117,22 +123,30 @@ body {
 }
 .cool-btn {
   display: inline-block;
-  background: transparent;
-  color: #e0e7ef;
-  border: 1px solid #4a5568;
-  padding: 0.875rem 2rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 2.5rem;
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  transition: all 0.3s ease;
-  border-radius: 0;
-  font-weight: 400;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 12px;
+  font-weight: 300;
   text-decoration: none;
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform-style: preserve-3d;
 }
 .cool-btn:hover {
-  background: #f3f4f6;
-  color: #18181b;
-  border-color: #f3f4f6;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px) translateZ(10px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 .card {
   background: #23232b;
@@ -197,17 +211,15 @@ localStorage.removeItem('theme')
 <body class="bg-zinc-950 font-sans antialiased">
   <!-- Navigation -->
   <header class="fixed w-full z-40">
-    <nav class="bg-zinc-950 shadow-lg relative  z-40">
-      <!-- Adding a background div with higher z-index to ensure solid background -->
-      <div class="absolute inset-0 bg-zinc-950"></div>
+    <nav class="vision-glass shadow-lg relative z-40 mx-4 mt-4 rounded-2xl">
       <div class="max-w-7xl mx-auto px-6 py-4 relative z-10">
         <div class="flex items-center justify-between">
-          <a href="/" class="michroma text-zinc-100 text-2xl tracking-wider">INNOMEGA</a>
+          <a href="/" class="michroma text-white text-2xl tracking-wider vision-text">INNOMEGA</a>
           <div class="hidden md:block">
             <div class="flex items-center space-x-8">
-              <a href="#about" class="text-zinc-300 hover:text-zinc-100 text-sm uppercase tracking-wide">About</a>
-              <a href="#services" class="text-zinc-300 hover:text-zinc-100 text-sm uppercase tracking-wide">Services</a>
-              <a href="#contact" class="text-zinc-300 hover:text-zinc-100 text-sm uppercase tracking-wide">Contact</a>
+              <a href="#about" class="text-white/70 hover:text-white text-sm uppercase tracking-wide transition-colors">About</a>
+              <a href="#services" class="text-white/70 hover:text-white text-sm uppercase tracking-wide transition-colors">Services</a>
+              <a href="#contact" class="text-white/70 hover:text-white text-sm uppercase tracking-wide transition-colors">Contact</a>
             </div>
           </div>
         </div>
@@ -216,33 +228,32 @@ localStorage.removeItem('theme')
   </header>
 
   <!-- Hero Section -->
-  <section class="relative h-screen flex items-center justify-center overflow-hidden" style="z-index: 1; background: linear-gradient(135deg, #18181b 0%, #1e1b2e 50%, #18181b 100%);">
-    <!-- Floating gradient orbs -->
-    <div class="gradient-orb gradient-orb-1"></div>
-    <div class="gradient-orb gradient-orb-2"></div>
-    <div class="gradient-orb gradient-orb-3"></div>
+  <section class="relative h-screen flex items-center justify-center overflow-hidden spatial-layer" style="z-index: 1; background: radial-gradient(ellipse at center, #0a0a0f 0%, #000000 100%);">
+    <!-- Spatial orbs -->
+    <div class="spatial-orb" style="width: 200px; height: 200px; top: 20%; right: 15%; animation-delay: 0.2s;"></div>
+    <div class="spatial-orb" style="width: 150px; height: 150px; bottom: 30%; left: 20%; animation-delay: 0.5s;"></div>
+    <div class="spatial-orb" style="width: 100px; height: 100px; top: 60%; right: 40%; animation-delay: 0.8s;"></div>
     
-    <!-- Geometric background -->
-    <div class="geometric-bg">
-      <div class="geometric-shape" style="width: 100px; height: 100px; top: 15%; left: 20%; transform: rotate(45deg);"></div>
-      <div class="geometric-shape" style="width: 60px; height: 60px; top: 70%; right: 25%; transform: rotate(12deg);"></div>
-      <div class="geometric-shape" style="width: 80px; height: 80px; bottom: 30%; left: 10%; transform: rotate(-30deg);"></div>
-    </div>
+    <!-- Floating glass panels -->
+    <div class="absolute top-40 left-20 w-32 h-32 vision-glass floating-element depth-layer-1" style="animation-delay: 0.3s;"></div>
+    <div class="absolute bottom-20 right-20 w-24 h-24 vision-glass floating-element depth-layer-2" style="animation-delay: 0.6s;"></div>
+    <div class="absolute top-1/3 right-10 w-16 h-16 vision-glass floating-element depth-layer-3" style="animation-delay: 0.9s;"></div>
     
-    <div class="absolute inset-0 z-0">
-      <div class="absolute inset-0" style="background: rgba(24, 24, 27, 0.7);"></div>
-    </div>
-    <div class="relative z-10 text-center px-6 animate-fade-in">
-      <h1 class="text-zinc-100 text-4xl md:text-5xl lg:text-6xl mb-12 font-light tracking-wide leading-tight">
-        Architects of Digital Excellence<br>
-        <span class="text-zinc-400">in iOS Development</span>
-      </h1>
-      <p class="text-zinc-400 text-lg md:text-xl max-w-3xl mx-auto mb-16 font-light leading-relaxed">
-        We don't just build applications; we craft the digital DNA of premium brands. 
-        From concepts to ecosystems, INNOMEGA transforms vision-driven experiences 
-        to redefine how users engage with technology.
-      </p>
-      <div class="mt-16">
+    <div class="relative z-10 text-center px-6 spatial-layer">
+      <div class="depth-layer-2 floating-element" style="animation-delay: 0.4s;">
+        <h1 class="vision-text text-white text-4xl md:text-5xl lg:text-6xl mb-12 font-extralight tracking-wide leading-tight">
+          Architects of Digital Excellence<br>
+          <span class="text-white/60">in iOS Development</span>
+        </h1>
+      </div>
+      <div class="depth-layer-1 floating-element" style="animation-delay: 0.7s;">
+        <p class="vision-text text-white/70 text-lg md:text-xl max-w-3xl mx-auto mb-16 font-light leading-relaxed">
+          We don't just build applications; we craft the digital DNA of premium brands. 
+          From concepts to sophisticated configurator applications, INNOMEGA transforms complex requirements 
+          into elegant experiences that redefine how users engage with technology.
+        </p>
+      </div>
+      <div class="mt-16 depth-layer-3 floating-element" style="animation-delay: 1s;">
         <a href="#contact" class="cool-btn">
           INQUIRE
         </a>
@@ -251,62 +262,51 @@ localStorage.removeItem('theme')
   </section>
 
   <!-- About Section -->
-  <section id="about" class="section-spacing relative" style="background: linear-gradient(135deg, #18181b 0%, #1a1a2e 100%);">
-    <!-- Subtle gradient overlay -->
-    <div class="absolute inset-0 bg-gradient-to-br from-blue-900/5 to-purple-900/5"></div>
-    
+  <section id="about" class="section-spacing relative spatial-layer" style="background: radial-gradient(ellipse at center, #0a0a0f 0%, #000000 100%);">
     <div class="max-w-5xl mx-auto px-6 relative z-10">
-      <h2 class="luxury-heading text-4xl mb-12 text-center">ABOUT</h2>
+      <h2 class="luxury-heading vision-text text-white text-4xl mb-12 text-center">ABOUT</h2>
       <div class="grid md:grid-cols-2 gap-20 items-center">
-        <div class="card relative">
-          <!-- Card gradient accent -->
-          <div class="absolute -top-px -left-px w-full h-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur-sm"></div>
-          <div class="relative bg-zinc-900/50 backdrop-blur-sm rounded-xl p-8">
-            <p class="text-zinc-200 text-xl leading-relaxed mb-12 text-spacing">
-              INNOMEGA specializes in developing premium iOS applications that combine elegant design with exceptional functionality.
-            </p>
-            <p class="text-zinc-200 text-xl leading-relaxed text-spacing">
-              Founded on principles of quality and exclusivity, we work with a select clientele who demand the extraordinary in their digital products.
-            </p>
-          </div>
+        <div class="vision-glass p-8 floating-element depth-layer-1" style="animation-delay: 0.3s;">
+          <p class="text-white/80 text-xl leading-relaxed mb-12 text-spacing vision-text">
+            INNOMEGA specializes in developing premium iOS applications that combine elegant design with exceptional functionality.
+          </p>
+          <p class="text-white/80 text-xl leading-relaxed text-spacing vision-text">
+            Founded on principles of quality and exclusivity, we work with a select clientele who demand the extraordinary in their digital products.
+          </p>
         </div>
-        <div class="card relative">
-          <!-- Card gradient accent -->
-          <div class="absolute -top-px -left-px w-full h-full bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-2xl blur-sm"></div>
-          <div class="relative bg-zinc-900/50 backdrop-blur-sm rounded-xl p-8">
-            <div class="space-y-12">
-              <div class="flex items-center">
-                <div class="icon-circle bg-gradient-to-br from-blue-500 to-blue-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="luxury-heading text-xl mb-4" style="color:#e0e7ef;">EXCLUSIVE</h3>
-                  <p class="text-zinc-400 text-spacing">Limited client roster ensures personal attention</p>
-                </div>
+        <div class="vision-glass p-8 floating-element depth-layer-2" style="animation-delay: 0.6s;">
+          <div class="space-y-12">
+            <div class="flex items-center">
+              <div class="w-14 h-14 rounded-full bg-white/10 backdrop-blur-lg flex items-center justify-center mr-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
               </div>
-              <div class="flex items-center">
-                <div class="icon-circle bg-gradient-to-br from-purple-500 to-purple-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="luxury-heading text-xl mb-4" style="color:#e0e7ef;">BESPOKE</h3>
-                  <p class="text-zinc-400 text-spacing">Custom solutions for unique challenges</p>
-                </div>
+              <div>
+                <h3 class="vision-text text-white text-xl mb-4 font-light">EXCLUSIVE</h3>
+                <p class="text-white/60 text-spacing">Limited client roster ensures personal attention</p>
               </div>
-              <div class="flex items-center">
-                <div class="icon-circle bg-gradient-to-br from-indigo-500 to-indigo-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="luxury-heading text-xl mb-4" style="color:#e0e7ef;">EXCELLENCE</h3>
-                  <p class="text-zinc-400 text-spacing">Uncompromising quality in every detail</p>
-                </div>
+            </div>
+            <div class="flex items-center">
+              <div class="w-14 h-14 rounded-full bg-white/10 backdrop-blur-lg flex items-center justify-center mr-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="vision-text text-white text-xl mb-4 font-light">BESPOKE</h3>
+                <p class="text-white/60 text-spacing">Custom solutions for unique challenges</p>
+              </div>
+            </div>
+            <div class="flex items-center">
+              <div class="w-14 h-14 rounded-full bg-white/10 backdrop-blur-lg flex items-center justify-center mr-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="vision-text text-white text-xl mb-4 font-light">EXCELLENCE</h3>
+                <p class="text-white/60 text-spacing">Uncompromising quality in every detail</p>
               </div>
             </div>
           </div>
@@ -316,75 +316,65 @@ localStorage.removeItem('theme')
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="section-spacing relative" style="background: linear-gradient(135deg, #18181b 0%, #16213e 50%, #18181b 100%);">
-    <!-- Abstract shapes -->
-    <div class="absolute top-20 right-10 w-32 h-32 border border-blue-500/20 rounded-full"></div>
-    <div class="absolute bottom-20 left-10 w-24 h-24 border border-purple-500/20 rounded-lg transform rotate-45"></div>
+  <section id="services" class="section-spacing relative spatial-layer" style="background: radial-gradient(ellipse at center, #0a0a0f 0%, #000000 100%);">
+    <!-- Subtle spatial orbs for depth -->
+    <div class="spatial-orb" style="width: 120px; height: 120px; top: 15%; left: 10%; animation-delay: 0.4s;"></div>
+    <div class="spatial-orb" style="width: 80px; height: 80px; bottom: 25%; right: 15%; animation-delay: 0.7s;"></div>
     
     <div class="max-w-5xl mx-auto px-6 relative z-10">
-      <h2 class="luxury-heading text-4xl mb-16 text-center">SERVICES</h2>
+      <h2 class="luxury-heading vision-text text-white text-4xl mb-16 text-center">SERVICES</h2>
       <div class="grid md:grid-cols-2 gap-12">
-        <div class="card transition-all duration-300 hover:scale-105 relative group">
-          <!-- Gradient glow on hover -->
-          <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-300"></div>
-          <div class="relative bg-zinc-900/80 backdrop-blur-sm rounded-xl p-8">
-            <div class="h-20 w-20 mb-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-              </svg>
-            </div>
-            <h3 class="luxury-heading text-2xl mb-8" style="color:#e0e7ef;">DEVELOPMENT</h3>
-            <p class="text-zinc-400 mb-12 text-spacing">Native applications designed for performance and elegance</p>
-            <ul class="text-zinc-500 space-y-6 text-spacing">
-              <li>• iOS Applications</li>
-              <li>• AI Applications</li>
-            </ul>
+        <div class="vision-glass p-8 floating-element depth-layer-1 transition-all duration-500 hover:scale-105 group" style="animation-delay: 0.3s;">
+          <div class="h-16 w-16 mb-8 bg-white/5 backdrop-blur-lg rounded-full flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+            </svg>
           </div>
+          <h3 class="vision-text text-white text-2xl mb-6 font-light">DEVELOPMENT</h3>
+          <p class="text-white/60 mb-8 text-spacing font-light">Native applications designed for performance and elegance</p>
+          <ul class="text-white/50 space-y-4 text-spacing font-light">
+            <li>• iOS Applications</li>
+            <li>• AI Applications</li>
+          </ul>
         </div>
-        <div class="card transition-all duration-300 hover:scale-105 relative group">
-          <!-- Gradient glow on hover -->
-          <div class="absolute -inset-1 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-300"></div>
-          <div class="relative bg-zinc-900/80 backdrop-blur-sm rounded-xl p-8">
-            <div class="h-20 w-20 mb-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <h3 class="luxury-heading text-2xl mb-8" style="color:#e0e7ef;">STRATEGY</h3>
-            <p class="text-zinc-400 mb-12 text-spacing">Comprehensive approaches to digital transformation</p>
-            <ul class="text-zinc-500 space-y-6 text-spacing">
-              <li>• Ecosystem Planning</li>
-              <li>• Business Integration</li>
-              <li>• Scaling Your Business</li>
-            </ul>
+        <div class="vision-glass p-8 floating-element depth-layer-2 transition-all duration-500 hover:scale-105 group" style="animation-delay: 0.6s;">
+          <div class="h-16 w-16 mb-8 bg-white/5 backdrop-blur-lg rounded-full flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
           </div>
+          <h3 class="vision-text text-white text-2xl mb-6 font-light">STRATEGY</h3>
+          <p class="text-white/60 mb-8 text-spacing font-light">Comprehensive approaches to digital transformation</p>
+          <ul class="text-white/50 space-y-4 text-spacing font-light">
+            <li>• Ecosystem Planning</li>
+            <li>• Business Integration</li>
+            <li>• Scaling Your Business</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact CTA -->
-  <section id="contact" class="section-spacing" style="background: #18181b;">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="luxury-heading text-4xl mb-12">READY TO ELEVATE YOUR DIGITAL PRESENCE?</h2>
-      <p class="text-zinc-300 text-2xl mb-16 max-w-3xl mx-auto text-spacing">
+  <section id="contact" class="section-spacing relative spatial-layer" style="background: radial-gradient(ellipse at center, #0a0a0f 0%, #000000 100%);">
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <h2 class="luxury-heading vision-text text-white text-4xl mb-12">READY TO ELEVATE YOUR DIGITAL PRESENCE?</h2>
+      <p class="text-white/60 text-2xl mb-16 max-w-3xl mx-auto text-spacing vision-text font-light">
         We're accepting a limited number of projects for 2026.<br>
       </p>
-      <a href="mailto:tech@innomega.se" class="my-12 cool-btn">
+      <a href="mailto:tech@innomega.se" class="my-12 cool-btn floating-element" style="animation-delay: 0.5s;">
         CONTACT US
       </a>
-      <p class="text-zinc-500 mt-20 text-spacing">
-        <span class="michroma" style="color:#e0e7ef;">INNOMEGA</span> · Premium AI and iOS App Development
-      </p>
+     
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer py-12">
+  <footer class="py-12 relative" style="background: #000000;">
     <div class="max-w-5xl mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-center">
-        <p class="michroma text-xl mb-8 md:mb-0" style="color:#e0e7ef;">INNOMEGA</p>
-        <p class="text-zinc-500 text-md text-spacing">
+        <p class="michroma text-white/60 text-xl mb-8 md:mb-0 vision-text">INNOMEGA</p>
+        <p class="text-white/40 text-md text-spacing vision-text">
           © 2025 INNOMEGA AB. All rights reserved.
         </p>
       </div>
