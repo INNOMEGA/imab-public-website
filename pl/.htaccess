@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Restricted Area"
-AuthUserFile /Users/jstudio/Sites/projects/imab-public-website/pl/.htpasswd
-Require valid-user
