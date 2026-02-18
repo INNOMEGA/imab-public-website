@@ -5,6 +5,13 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Canonical domain — redirect bare domain to www
+[[redirects]]
+  from   = "https://innomega.se/*"
+  to     = "https://www.innomega.se/:splat"
+  status = 301
+  force  = true
+
 # Clean URLs — serve index.html without requiring the filename in the URL
 [[redirects]]
   from   = "/blog"
