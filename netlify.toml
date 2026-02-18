@@ -1,9 +1,5 @@
 [build]
-  command   = "npm run build-css"
   publish   = "."
-
-[build.environment]
-  NODE_VERSION = "20"
 
 # Canonical domain — redirect bare domain to www
 [[redirects]]
