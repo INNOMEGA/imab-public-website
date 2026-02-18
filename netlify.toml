@@ -1,0 +1,38 @@
+[build]
+  command   = "npm run build-css"
+  publish   = "."
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Clean URLs — serve index.html without requiring the filename in the URL
+[[redirects]]
+  from   = "/blog"
+  to     = "/blog/"
+  status = 301
+
+[[redirects]]
+  from   = "/blog/posts/:slug"
+  to     = "/blog/posts/:slug/"
+  status = 301
+
+# Security & performance headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "camera=(), microphone=(), geolocation=()"
+
+# Cache compiled CSS aggressively (changes hash with each build)
+[[headers]]
+  for = "/src/output.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache static assets
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
