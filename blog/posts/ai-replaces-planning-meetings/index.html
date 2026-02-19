@@ -44,7 +44,7 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
 .prose {
   font-size: 1.0625rem;
   line-height: 1.85;
-  color: #1f2937;
+  color: #111827;
   font-weight: 400;
 }
 .prose p { margin-bottom: 1.75rem; }
@@ -117,10 +117,9 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
   margin: 2.5rem 0;
   background: #f9fafb;
   font-size: 1.25rem;
-  font-weight: 300;
+  font-weight: 600;
   color: #111827;
-  font-style: italic;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 .divider { border: none; border-top: 1px solid #e5e7eb; }
 .fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; }
@@ -139,7 +138,7 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
   <header class="fixed w-full z-40 bg-white/90 backdrop-blur-md border-b border-gray-100/80">
     <nav class="max-w-7xl mx-auto px-6 md:px-10 py-5">
       <div class="flex items-center justify-between">
-        <a href="/" class="michroma text-gray-900 text-lg tracking-widest hover:text-gray-700 transition-colors">INNOMEGA</a>
+        <a href="/" class="michroma text-gray-900 text-2xl tracking-widest hover:text-gray-700 transition-colors">INNOMEGA</a>
         <div class="hidden md:flex items-center space-x-10">
           <a href="/#about" class="text-gray-600 hover:text-gray-900 transition-colors">About</a>
           <a href="/#services" class="text-gray-600 hover:text-gray-900 transition-colors">Services</a>
@@ -167,7 +166,7 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
         <h1 class="text-4xl md:text-5xl font-light text-gray-900 leading-tight tracking-tight mb-6">
           From Planning Meetings to Working Software: How AI Is Rewriting Business Roles
         </h1>
-        <p class="text-lg text-gray-700 leading-relaxed mb-10">
+        <p class="text-lg text-gray-800 leading-relaxed mb-10">
           The traditional software development cycle is being compressed beyond recognition. Planning discussions are becoming active development sessions — and the businesses that understand this structural shift will hold a lasting competitive advantage.
         </p>
         <div class="flex items-center gap-6 pb-10 border-b border-gray-100">
@@ -259,7 +258,7 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
         </p>
 
         <p>
-          Continuous integration and automated deployment have changed this economics permanently. Code changes move from completion to live production in minutes, with automated testing and rollback capabilities that make rapid iteration genuinely safe. The marginal cost of "trying something" has dropped to near zero.
+          Continuous integration and automated deployment have changed the economics of deployment permanently. Code changes move from completion to live production in minutes, with automated testing and rollback capabilities that make rapid iteration genuinely safe. The marginal cost of "trying something" has dropped to near zero.
         </p>
 
         <p>
@@ -323,14 +322,73 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
     </div>
   </article>
 
+  <!-- Newsletter Signup -->
+  <section class="py-24 px-6 md:px-10" style="background:#f9fafb;border-top:1px solid #e5e7eb;">
+    <div class="max-w-3xl mx-auto pt-8 pb-8">
+      <p class="section-label mb-4">Stay informed</p>
+      <h2 class="text-2xl font-light text-gray-900 mb-2 tracking-tight">New articles, straight to your inbox.</h2>
+      <p style="font-size:0.9375rem;color:#4b5563;line-height:1.7;margin-bottom:1.75rem;">Business email addresses only. No spam, ever.</p>
+      <form id="subscribe-form" onsubmit="handleSubscribe(event)" style="display:flex;flex-wrap:wrap;gap:0.75rem;max-width:32rem;" class="pb-8">
+        <input type="email" id="subscribe-email" placeholder="you@yourcompany.com" required
+               style="flex:1;min-width:200px;padding:0.75rem 1.25rem;border:1px solid #d1d5db;border-radius:9999px;font-size:0.875rem;font-family:inherit;outline:none;color:#111827;background:#fff;"
+               onfocus="this.style.borderColor='#0369a1'" onblur="this.style.borderColor='#d1d5db'">
+        <button type="submit" id="subscribe-btn"
+                style="padding:0.75rem 1.75rem;background:#1a1a1a;color:#fff;border:none;border-radius:9999px;font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap;transition:background 0.2s;"
+                onmouseover="if(!this.disabled)this.style.background='#333'" onmouseout="if(!this.disabled&&this.textContent!=='Subscribed')this.style.background='#1a1a1a'">
+          Subscribe
+        </button>
+      </form>
+      <p id="subscribe-msg" style="margin-top:1rem;font-size:0.875rem;display:none;"></p>
+    </div>
+  </section>
+
+  <script>
+  async function handleSubscribe(e) {
+    e.preventDefault();
+    const email = document.getElementById('subscribe-email').value.trim();
+    const msg = document.getElementById('subscribe-msg');
+    const btn = document.getElementById('subscribe-btn');
+    btn.textContent = 'Subscribing\u2026';
+    btn.disabled = true;
+    try {
+      const res = await fetch('/.netlify/functions/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        msg.textContent = 'You\u2019re subscribed. Thank you \u2014 we\u2019ll be in touch.';
+        msg.style.color = '#0369a1';
+        msg.style.display = 'block';
+        document.getElementById('subscribe-email').value = '';
+        btn.textContent = 'Subscribed';
+        btn.style.background = '#0369a1';
+      } else {
+        msg.textContent = data.error || 'Something went wrong. Please try again.';
+        msg.style.color = '#dc2626';
+        msg.style.display = 'block';
+        btn.textContent = 'Subscribe';
+        btn.disabled = false;
+      }
+    } catch {
+      msg.textContent = 'Something went wrong. Please try again.';
+      msg.style.color = '#dc2626';
+      msg.style.display = 'block';
+      btn.textContent = 'Subscribe';
+      btn.disabled = false;
+    }
+  }
+  </script>
+
   <hr style="border:none;border-top:1px solid #e5e7eb;max-width:72rem;margin:0 auto;">
 
   <!-- Back to Blog + CTA -->
   <section class="py-20 px-6 md:px-10">
     <div class="max-w-3xl mx-auto text-center">
       <p class="section-label mb-6">AI Business Intelligence</p>
-      <h2 class="text-3xl font-light text-gray-900 mb-6 tracking-tight">More insights coming soon.</h2>
-      <p class="text-gray-700 mb-10">
+      <h2 class="text-3xl font-light text-gray-900 mb-6 tracking-tight">More insights on AI and business.</h2>
+      <p class="text-gray-800 mb-10">
         We publish essays on AI's business impact — written for leaders, not engineers.
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
