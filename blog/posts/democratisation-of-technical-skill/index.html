@@ -118,21 +118,21 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
 </script>
 </head>
 
-<body class="bg-white antialiased text-gray-900">
+<body class="antialiased text-gray-900 bg-white">
 
   <!-- Navigation -->
-  <header class="fixed w-full z-40 bg-white/90 backdrop-blur-md border-b border-gray-100/80">
-    <nav class="max-w-7xl mx-auto px-6 md:px-10 py-5">
+  <header class="fixed z-40 w-full border-b bg-white/90 backdrop-blur-md border-gray-100/80">
+    <nav class="px-6 py-5 mx-auto max-w-7xl md:px-10">
       <div class="flex items-center justify-between">
-        <a href="/" class="michroma text-gray-900 text-2xl tracking-widest hover:text-gray-700 transition-colors">INNOMEGA</a>
-        <div class="hidden md:flex items-center space-x-10">
-          <a href="/#about" class="text-gray-600 hover:text-gray-900 transition-colors">About</a>
-          <a href="/#services" class="text-gray-600 hover:text-gray-900 transition-colors">Services</a>
-          <a href="/blog/" class="text-gray-900 hover:text-sky-700 transition-colors font-medium">Blog</a>
+        <a href="/" class="text-2xl tracking-widest text-gray-900 transition-colors michroma hover:text-gray-700">INNOMEGA</a>
+        <div class="items-center hidden space-x-10 md:flex">
+          <a href="/#about" class="text-gray-600 transition-colors hover:text-gray-900">About</a>
+          <a href="/#services" class="text-gray-600 transition-colors hover:text-gray-900">Services</a>
+          <a href="/blog/" class="font-medium text-gray-900 transition-colors hover:text-sky-700">Blog</a>
           <a href="/#contact" style="display:inline-flex;align-items:center;background:#1a1a1a;color:#fff;padding:0.5rem 1.25rem;border-radius:9999px;font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:500;text-decoration:none;" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#1a1a1a'">Inquire</a>
         </div>
         <div class="flex md:hidden">
-          <a href="/blog/" class="text-gray-600 hover:text-gray-900 transition-colors text-xs tracking-widest uppercase">← Blog</a>
+          <a href="/blog/" class="text-xs tracking-widest text-gray-600 uppercase transition-colors hover:text-gray-900">← Blog</a>
         </div>
       </div>
     </nav>
@@ -140,7 +140,7 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
 
   <!-- Article Header -->
   <article>
-    <header class="pt-36 pb-16 px-6 md:px-10 bg-white fade-in">
+    <header class="px-6 pb-16 bg-white pt-36 md:px-10 fade-in">
       <div class="max-w-3xl mx-auto">
         <div class="flex flex-wrap items-center gap-3 mb-8">
           <a href="/blog/" style="font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;color:#4b5563;text-decoration:none;">← AI Business Intelligence</a>
@@ -149,10 +149,10 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
           <span class="text-gray-300">&middot;</span>
           <span class="section-label">6 min read</span>
         </div>
-        <h1 class="text-4xl md:text-5xl font-light text-gray-900 leading-tight tracking-tight mb-6">
+        <h1 class="mb-6 text-4xl font-light leading-tight tracking-tight text-gray-900 md:text-5xl">
           The Democratisation of Technical Skill: Why Your Best Ideas Now Have a Faster Path to Reality
         </h1>
-        <p class="text-lg text-gray-800 leading-relaxed mb-10">
+        <p class="mb-10 text-lg leading-relaxed text-gray-800">
           AI tools are dissolving the boundary between people who understand business problems and people who can build solutions. Domain expertise has never been more valuable — or more directly actionable.
         </p>
         <div class="flex items-center gap-6 pb-10 border-b border-gray-100">
@@ -165,8 +165,16 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
     </header>
 
     <!-- Article Body -->
-    <div class="max-w-3xl mx-auto px-6 md:px-10 pb-20">
+    <div class="max-w-3xl px-6 pb-20 mx-auto md:px-10">
+      <div class="flex justify-end mb-4">
+        <div class="inline-flex bg-white border border-gray-200 rounded-md">
+          <button data-lang="en" class="px-3 py-1 text-sm font-medium lang-btn bg-sky-50 text-sky-700">EN</button>
+          <button data-lang="de" class="px-3 py-1 text-sm font-medium lang-btn">DE</button>
+        </div>
+      </div>
       <div class="prose">
+
+        <div class="lang lang-en">
 
         <p>
           The traditional organisation has always had an invisible line running through it. On one side: the people who understand the business — the customers, the workflows, the problems that actually matter. On the other: the people who can build things. For decades, crossing that line required years of technical training. And the cost of the gap between them was paid in every miscommunication, every lost translation between business requirement and technical delivery, every product that arrived six months late and recognisably different from the original intent.
@@ -270,14 +278,111 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
         </p>
 
       </div>
+      <div class="hidden lang lang-de">
+        <p>
+          In Organisationen verläuft oft eine unsichtbare Grenze. Auf der einen Seite stehen diejenigen, die das Geschäft verstehen — 
+          Kunden, Abläufe, die wirklich wichtigen Probleme. Auf der anderen Seite diejenigen, die Applikationen umsetzen und "bauen" können. 
+          Jahrzehntelang war das Überschreiten dieser Grenze mit erheblichem technischem Aufwand verbunden. Die Kosten dieser Kluft zeigten 
+          sich in jeder Fehlkommunikation, jeder verlorenen Übersetzung zwischen Geschäftsanforderung und technischer Umsetzung, in jedem Produkt,
+           das Monate später anders erschien als ursprünglich gedacht.
+        </p>
+
+        <p>
+          Diese Grenze verwischt nun.
+        </p>
+
+        <h2>Die Kosten der Expertenlücke</h2>
+
+        <p>
+          Viele Organisationen kennen die Frustration: Eine Führungskraft hat eine klare Vorstellung davon, was gebaut werden soll, 
+          kann es aber nicht so präzise kommunizieren, dass ein Entwicklerteam ohne größere Interpretation liefern kann. Ideen überdauern 
+          Spezifikationsrunden, Umfangsreduzierungen und Monate der Entwicklung — und kommen schließlich als etwas an, das der ursprüngliche 
+          Stakeholder kaum wiedererkennt.
+        </p>
+
+        <p>
+          Die Lücke zwischen „wer das Problem versteht“ und „wer die Lösung bauen kann“ war immer teuer. Produktmanager, Analysten und 
+          Projektmanager existieren größtenteils, um diese Lücke zu überbrücken. Agile Rutinen, User‑Story‑Frameworks und 
+          Spezifikationsdokumente sind Werkzeuge dafür — sie schließen die Kluft nicht.
+        </p>
+
+        <div class="pull-quote">
+          „Der Wert einer Idee wurde nie durch die Idee begrenzt, sondern durch die Distanz zu denen, die sie bauen konnten.“
+        </div>
+
+        <h2>Was sich wirklich ändert</h2>
+
+        <p>
+          KI‑gestützte Entwicklungstools tun etwas, das Jahrzehnte von Prozessverbesserungen nicht geschafft haben: 
+          sie verkürzen die Distanz zwischen Verstehen und Erzeugen einer Lösung.
+        </p>
+
+        <p>
+          Das heißt nicht, dass jeder zum Entwickler wird. Es heißt, dass die Einstiegshürden und die Zeit bis zu einem 
+          funktionierenden Prototypen deutlich sinken. Fachwissen — hart erarbeitetes Wissen über einen Markt oder einen Prozess — 
+          lässt sich jetzt direkter in produktive Artefakte umwandeln.
+        </p>
+
+        <p>
+          Ein Logistik‑Fachmann, der genau weiß, warum Routing‑Software versagt, kann das Problem so beschreiben, 
+          dass ein KI‑gestützter Prozess innerhalb kurzer Zeit einen Prototypen liefert. Eine Finanzanalystin kann eine 
+          Ineffizienz in Berichten so adressieren, dass innerhalb derselben Woche ein Werkzeug entsteht. Ein
+           Customer‑Service‑Leiter kann Workflows modellieren, anstatt auf den nächsten Sprint zu warten.
+        </p>
+
+        <h2>Folgen für verschiedene Rollen</h2>
+
+        <p>
+          Für <strong>Geschäftsleiter</strong> bedeutet das: Fachkenntnis ist heute produktiver als vor drei Jahren. 
+          Die Frage ist, ob die Organisation diesen Menschen Werkzeuge und Erlaubnis gibt, damit zu arbeiten.
+        </p>
+
+        <p>
+          Für <strong>Technikteams</strong> bedeutet es: Die Menge an Anfragen, die früher Senior‑Entwickler 
+          erforderten, sinkt. Was bleibt, ist anspruchsvoller, architektonisch interessanter und risikoreicher. 
+          Die Software‑Ingenieurskunst wird anspruchsvoller an der Spitze, während Basisarbeit leichter zugänglich wird.
+        </p>
+
+        <p>
+          Für <strong>Produkt und Strategie</strong> ändert sich die Übersetzungsrolle: Statt Anforderungen in 
+          technische Spezifikationen zu übersetzen, orchestriert man Iteration — schneller zwischen Insight, Prototyp, 
+          Feedback und Verfeinerung zu wechseln.
+        </p>
+
+        <h2>Die Gefahr des Fehlinterpretierens</h2>
+
+        <p>
+          Eine falsche Lesart wäre: Technische Expertise verliert an Wert. Das ist falsch. Tatsächlich 
+          verschiebt sich, wofür Expertise gebraucht wird. <mark class="highlight">Starke 
+            Ingenieure mit KI‑Tools sind deutlich produktiver.</mark> Fachleute können jetzt direkter praktisch 
+            mitarbeiten. Beides ist gleichzeitig wahr und verstärkt sich gegenseitig.
+        </p>
+
+        <div class="pull-quote">
+          „Expertise wird nicht entwertet. Sie wird entkettet.“
+        </div>
+
+        <h2>Was zu tun ist</h2>
+
+        <ul>
+          <li>Gib Menschen mit tiefem Domänen- und Fachwissen Zugang zu KI‑gestützten Tools und Raum zum Experimentieren.</li>
+          <li>Reduziere interne Bürokratie darüber, wer „bauen darf“ — entscheide anhand des Nutzens, nicht des Titels.</li>
+          <li>Messt Ergebnisse statt Titeln — wichtig ist, ob ein Problem gelöst wurde.</li>
+          <li>Teile erfolgreiche Experimente organisationsweit, damit Lernsequenzen nicht isoliert bleiben.</li>
+        </ul>
+
+        <p>
+          Die Tools existieren. Die Frage ist, ob Sie diese nutzen.
+        </p>
+      </div>
     </div>
   </article>
 
   <!-- Newsletter Signup -->
-  <section class="py-24 px-6 md:px-10" style="background:#f9fafb;border-top:1px solid #e5e7eb;">
-    <div class="max-w-3xl mx-auto pt-8 pb-8">
-      <p class="section-label mb-4">Stay informed</p>
-      <h2 class="text-2xl font-light text-gray-900 mb-2 tracking-tight">New articles, straight to your inbox.</h2>
+  <section class="px-6 py-24 md:px-10" style="background:#f9fafb;border-top:1px solid #e5e7eb;">
+    <div class="max-w-3xl pt-8 pb-8 mx-auto">
+      <p class="mb-4 section-label">Stay informed</p>
+      <h2 class="mb-2 text-2xl font-light tracking-tight text-gray-900">New articles, straight to your inbox.</h2>
       <p style="font-size:0.9375rem;color:#4b5563;line-height:1.7;margin-bottom:1.75rem;">Business email addresses only. No spam, ever.</p>
       <form id="subscribe-form" onsubmit="handleSubscribe(event)" style="display:flex;flex-wrap:wrap;gap:0.75rem;max-width:32rem;">
         <input type="email" id="subscribe-email" placeholder="you@yourcompany.com" required
@@ -335,14 +440,14 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
   <hr style="border:none;border-top:1px solid #e5e7eb;max-width:72rem;margin:0 auto;">
 
   <!-- Back to Blog + CTA -->
-  <section class="py-20 px-6 md:px-10">
+  <section class="px-6 py-20 md:px-10">
     <div class="max-w-3xl mx-auto text-center">
-      <p class="section-label mb-6">AI Business Intelligence</p>
-      <h2 class="text-3xl font-light text-gray-900 mb-6 tracking-tight">More insights on AI and business.</h2>
-      <p class="text-gray-800 mb-10">
+      <p class="mb-6 section-label">AI Business Intelligence</p>
+      <h2 class="mb-6 text-3xl font-light tracking-tight text-gray-900">More insights on AI and business.</h2>
+      <p class="mb-10 text-gray-800">
         We publish essays on AI's business impact — written for leaders, not engineers.
       </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a href="/blog/" style="display:inline-flex;align-items:center;background:#1a1a1a;color:#fff;padding:0.875rem 2rem;border-radius:9999px;font-size:0.8125rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:500;text-decoration:none;">← Back to Blog</a>
         <a href="/#contact" style="display:inline-flex;align-items:center;color:#1a1a1a;padding:0.875rem 2rem;border-radius:9999px;font-size:0.8125rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:500;border:1px solid #d1d5db;text-decoration:none;">Work with INNOMEGA</a>
       </div>
@@ -350,12 +455,15 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
   </section>
 
   <!-- Footer -->
-  <footer class="py-10 border-t border-gray-100 bg-white">
-    <div class="max-w-6xl mx-auto px-6 md:px-10 flex flex-col md:flex-row justify-between items-center gap-4">
-      <a href="/" class="michroma text-gray-900 text-sm tracking-widest">INNOMEGA</a>
-      <p class="text-gray-600 text-xs">© 2026 INNOMEGA AB. All rights reserved.</p>
+  <footer class="py-10 bg-white border-t border-gray-100">
+    <div class="flex flex-col items-center justify-between max-w-6xl gap-4 px-6 mx-auto md:px-10 md:flex-row">
+      <a href="/" class="text-sm tracking-widest text-gray-900 michroma">INNOMEGA</a>
+      <p class="text-xs text-gray-600">© 2026 INNOMEGA AB. All rights reserved.</p>
     </div>
   </footer>
 
+<script src="/src/lang-toggle.js"></script>
+  <script src="/src/lang-nav.js"></script>
+  <script src="/src/lang-inject.js"></script>
 </body>
 </html>
