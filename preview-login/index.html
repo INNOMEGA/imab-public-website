@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview Login | INNOMEGA</title>
+  <meta name="description" content="Private preview access for INNOMEGA localized pages.">
+  <link href="/src/output.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Michroma">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap">
+  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body class="bg-white text-gray-900">
+  <main class="min-h-screen px-6 py-24 md:px-10">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-sm tracking-widest text-gray-900 michroma">INNOMEGA</p>
+      <p class="mt-12 section-label">Private Preview</p>
+      <h1 class="mt-6 text-5xl font-light leading-tight tracking-tight text-gray-900 md:text-7xl">
+        Localized pages are currently private.
+      </h1>
+      <p class="max-w-2xl mt-8 text-lg leading-relaxed text-gray-800">
+        Sign in with your invited preview account to access the German and Swedish versions of the site.
+      </p>
+
+      <div class="p-8 mt-12 border border-gray-200 bg-gray-50">
+        <p id="preview-status" class="text-sm leading-relaxed text-gray-700">
+          Use the invited email and password you configured in Netlify Identity.
+        </p>
+        <div class="flex flex-col gap-4 mt-8 sm:flex-row">
+          <button id="preview-login-button" type="button" class="btn-primary justify-center" style="margin-block:0;">
+            Sign in
+          </button>
+          <button id="preview-logout-button" type="button" class="btn-secondary justify-center hidden" style="margin-block:0;">
+            Log out
+          </button>
+        </div>
+        <p class="mt-6 text-sm leading-relaxed text-gray-600">
+          This page only works after Netlify Identity is enabled for the site and your user has the <span class="font-medium text-gray-900">preview</span> role.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var identity = window.netlifyIdentity;
+      var params = new URLSearchParams(window.location.search);
+      var requestedPath = params.get('redirect') || '/';
+      var loginButton = document.getElementById('preview-login-button');
+      var logoutButton = document.getElementById('preview-logout-button');
+      var status = document.getElementById('preview-status');
+
+      function safeRedirect(path) {
+        if (!path || path.charAt(0) !== '/') return '/';
+        return path;
+      }
+
+      function updateUI(user) {
+        if (user) {
+          status.textContent = 'Signed in as ' + user.email + '. Redirecting to the requested preview page...';
+          loginButton.classList.add('hidden');
+          logoutButton.classList.remove('hidden');
+        } else {
+          status.textContent = 'Use the invited email and password you configured in Netlify Identity.';
+          loginButton.classList.remove('hidden');
+          logoutButton.classList.add('hidden');
+        }
+      }
+
+      if (!identity) {
+        status.textContent = 'Netlify Identity is not available for this site yet. Enable Identity in Netlify before using this preview gate.';
+        loginButton.disabled = true;
+        loginButton.classList.add('opacity-50', 'cursor-not-allowed');
+        return;
+      }
+
+      identity.on('init', function (user) {
+        updateUI(user);
+        if (user) {
+          window.location.href = safeRedirect(requestedPath);
+        }
+      });
+
+      identity.on('login', function (user) {
+        identity.close();
+        updateUI(user);
+        window.location.href = safeRedirect(requestedPath);
+      });
+
+      identity.on('logout', function () {
+        updateUI(null);
+      });
+
+      identity.on('error', function (error) {
+        status.textContent = error && error.message ? error.message : 'Sign-in failed.';
+      });
+
+      loginButton.addEventListener('click', function () {
+        identity.open('login');
+      });
+
+      logoutButton.addEventListener('click', function () {
+        identity.logout();
+      });
+
+      identity.init();
+    })();
+  </script>
+</body>
+</html>

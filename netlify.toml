@@ -9,6 +9,33 @@
   status = 301
   force  = true
 
+# Protect unfinished localized sections behind Netlify Identity.
+[[redirects]]
+  from = "/de/*"
+  to = "/de/:splat"
+  status = 200
+  force = true
+  conditions = {Role = ["preview"]}
+
+[[redirects]]
+  from = "/de/*"
+  to = "/preview-login/?redirect=/de/:splat"
+  status = 401
+  force = true
+
+[[redirects]]
+  from = "/sv/*"
+  to = "/sv/:splat"
+  status = 200
+  force = true
+  conditions = {Role = ["preview"]}
+
+[[redirects]]
+  from = "/sv/*"
+  to = "/preview-login/?redirect=/sv/:splat"
+  status = 401
+  force = true
+
 # Clean URLs — serve index.html without requiring the filename in the URL
 [[redirects]]
   from   = "/blog"
