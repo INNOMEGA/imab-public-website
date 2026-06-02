@@ -11,6 +11,24 @@
 <meta property="og:url" content="https://www.innomega.se/blog/posts/ai-replaces-planning-meetings/">
 <meta property="article:published_time" content="2026-02-18">
 <meta name="author" content="INNOMEGA">
+<meta name="color-scheme" content="light dark">
+<script>
+  (function () {
+    try {
+      var queryTheme = new URLSearchParams(window.location.search).get('theme');
+      if (queryTheme === 'light' || queryTheme === 'dark') {
+        localStorage.setItem('theme', queryTheme);
+      }
+      var storedTheme = localStorage.getItem('theme');
+      var isDark = storedTheme ? storedTheme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.classList.toggle('dark', isDark);
+    } catch (error) {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+      }
+    }
+  })();
+</script>
 <title>From Planning Meetings to Working Software: How AI Is Rewriting Business Roles | INNOMEGA</title>
 <link href="../../../src/output.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,12 +38,15 @@
 
 <style>
 * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+:root { color-scheme: light; }
+html.dark { color-scheme: dark; }
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   background: #ffffff;
   color: #1a1a1a;
 }
+html.dark body { background: #020617; color: #e2e8f0; }
 .michroma { font-family: Michroma; letter-spacing: 0.1em; }
 .gradient-text {
   background: linear-gradient(135deg, #000000 0%, #0369a1 50%, #000000 100%);
@@ -124,6 +145,21 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
 .divider { border: none; border-top: 1px solid #e5e7eb; }
 .fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; }
 @keyframes fadeIn { to { opacity: 1; } }
+html.dark .section-label { color: #94a3b8; }
+html.dark .prose,
+html.dark .prose p { color: #e2e8f0; }
+html.dark .prose h2,
+html.dark .prose h3,
+html.dark .prose strong { color: #f8fafc; }
+html.dark .prose ul li,
+html.dark .prose ol li { color: #cbd5e1; }
+html.dark .prose ol li::before { color: #94a3b8; }
+html.dark .pull-quote {
+  background: rgba(15, 23, 42, 0.8);
+  color: #f8fafc;
+  border-left-color: #38bdf8;
+}
+html.dark .divider { border-top-color: rgba(148, 163, 184, 0.18); }
 </style>
 
 <!-- AdSense — activate when traffic justifies it
@@ -138,21 +174,29 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
 </script>
 </head>
 
-<body class="antialiased text-gray-900 bg-white">
+<body class="antialiased text-gray-900 bg-white dark:bg-zinc-950 dark:text-gray-100">
 
   <!-- Navigation -->
-  <header class="fixed z-40 w-full border-b bg-white/90 backdrop-blur-md border-gray-100/80">
+  <header class="fixed z-40 w-full border-b bg-white/90 backdrop-blur-md border-gray-100/80 dark:border-white/10 dark:bg-zinc-950/85">
     <nav class="px-6 py-5 mx-auto max-w-7xl md:px-10">
       <div class="flex items-center justify-between">
-        <a href="/" class="text-2xl tracking-widest text-gray-900 transition-colors michroma hover:text-gray-700">INNOMEGA</a>
+        <a href="/" class="text-2xl tracking-widest text-gray-900 transition-colors michroma hover:text-gray-700 dark:text-white dark:hover:text-sky-200">INNOMEGA</a>
         <div class="items-center hidden space-x-10 md:flex">
-          <a href="/#about" class="text-gray-600 transition-colors hover:text-gray-900">About</a>
-          <a href="/#services" class="text-gray-600 transition-colors hover:text-gray-900">Services</a>
-          <a href="/blog/" class="font-medium text-gray-900 transition-colors hover:text-sky-700">Blog</a>
+          <a href="/#about" class="text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">About</a>
+          <a href="/#services" class="text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Services</a>
+          <a href="/blog/" class="font-medium text-gray-900 transition-colors hover:text-sky-700 dark:text-white dark:hover:text-sky-300">Blog</a>
+          <button type="button" data-theme-toggle aria-pressed="false" aria-label="Toggle color theme" class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-2 text-[0.6875rem] tracking-[0.14em] text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900 dark:border-white/15 dark:bg-white/5 dark:text-gray-200 dark:hover:border-white dark:hover:text-white">
+            <span data-theme-icon aria-hidden="true">◐</span>
+            <span data-theme-label>Dark mode</span>
+          </button>
           <a href="/#contact" style="display:inline-flex;align-items:center;background:#1a1a1a;color:#fff;padding:0.5rem 1.25rem;border-radius:9999px;font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:500;text-decoration:none;" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#1a1a1a'">Inquire</a>
         </div>
         <div class="flex md:hidden">
-          <a href="/blog/" class="text-xs tracking-widest text-gray-600 uppercase transition-colors hover:text-gray-900">← Blog</a>
+          <button type="button" data-theme-toggle aria-pressed="false" aria-label="Toggle color theme" class="mr-4 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-2 text-[0.6875rem] tracking-[0.14em] text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900 dark:border-white/15 dark:bg-white/5 dark:text-gray-200 dark:hover:border-white dark:hover:text-white">
+            <span data-theme-icon aria-hidden="true">◐</span>
+            <span data-theme-label>Dark mode</span>
+          </button>
+          <a href="/blog/" class="text-xs tracking-widest text-gray-600 uppercase transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">← Blog</a>
         </div>
       </div>
     </nav>
@@ -160,7 +204,7 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
 
   <!-- Article Header -->
   <article>
-    <header class="px-6 pb-16 bg-white pt-36 md:px-10 fade-in">
+    <header class="px-6 pb-16 bg-white pt-36 md:px-10 fade-in dark:bg-zinc-950">
       <div class="max-w-3xl mx-auto">
         <div class="flex flex-wrap items-center gap-3 mb-8">
           <a href="/blog/" style="font-size:0.6875rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:500;color:#4b5563;text-decoration:none;">← AI Business Intelligence</a>
@@ -169,13 +213,13 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
           <span class="text-gray-300">&middot;</span>
           <span class="section-label">5 min read</span>
         </div>
-        <h1 class="mb-6 text-4xl font-light leading-tight tracking-tight text-gray-900 md:text-5xl">
+        <h1 class="mb-6 text-4xl font-light leading-tight tracking-tight text-gray-900 md:text-5xl dark:text-white">
           From Planning Meetings to Working Software: How AI Is Rewriting Business Roles
         </h1>
-        <p class="mb-10 text-lg leading-relaxed text-gray-800">
+        <p class="mb-10 text-lg leading-relaxed text-gray-800 dark:text-gray-300">
           The traditional software development cycle is being compressed beyond recognition. Planning discussions are becoming active development sessions — and the businesses that understand this structural shift will hold a lasting competitive advantage.
         </p>
-        <div class="flex items-center gap-6 pb-10 border-b border-gray-100">
+        <div class="flex items-center gap-6 pb-10 border-b border-gray-100 dark:border-white/10">
           <div>
             <p class="text-sm font-medium text-gray-900">INNOMEGA</p>
             <p class="section-label mt-0.5">February 18, 2026</p>
@@ -187,7 +231,7 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
     <!-- Article Body -->
     <div class="max-w-3xl px-6 pb-20 mx-auto md:px-10">
       <div class="flex justify-end mb-4">
-        <div class="inline-flex bg-white border border-gray-200 rounded-md">
+        <div class="inline-flex bg-white border border-gray-200 rounded-md dark:border-white/10 dark:bg-zinc-900/70">
           <button data-lang="en" class="px-3 py-1 text-sm font-medium lang-btn bg-sky-50 text-sky-700">EN</button>
           <button data-lang="de" class="px-3 py-1 text-sm font-medium lang-btn">DE</button>
         </div>
@@ -499,7 +543,7 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
   </section>
 
   <!-- Footer -->
-  <footer class="py-10 bg-white border-t border-gray-100">
+  <footer class="py-10 bg-white border-t border-gray-100 dark:border-white/10 dark:bg-zinc-950">
     <div class="flex flex-col items-center justify-between max-w-6xl gap-4 px-6 mx-auto md:px-10 md:flex-row">
       <a href="/" class="text-sm tracking-widest text-gray-900 michroma">INNOMEGA</a>
       <p class="text-xs text-gray-600">© 2026 INNOMEGA AB. All rights reserved.</p>
@@ -507,6 +551,7 @@ nav a { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; f
   </footer>
 
 <script src="/src/lang-toggle.js"></script>
+  <script src="/src/theme-toggle.js"></script>
   <script src="/src/lang-nav.js"></script>
   <script src="/src/lang-inject.js"></script>
 </body>
