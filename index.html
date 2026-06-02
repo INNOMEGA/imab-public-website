@@ -6,7 +6,26 @@
 <meta name="description" content="INNOMEGA provides expert IT and AI technical advisory services, helping businesses leverage technology for innovation and growth. Based in Sweden.">
 <meta name="keywords" content="IT consulting, AI advisory, technology consulting, artificial intelligence, machine learning, digital transformation, IT strategy, Sweden, Scandinavian technology">
 <meta name="format-detection" content="telephone=no">
+<meta name="color-scheme" content="light dark">
 <title>INNOMEGA | IT and AI Strategical Technical Advisory</title>
+<script>
+  (function () {
+    try {
+      var searchParams = new URLSearchParams(window.location.search);
+      var queryTheme = searchParams.get('theme');
+      if (queryTheme === 'light' || queryTheme === 'dark') {
+        localStorage.setItem('theme', queryTheme);
+      }
+      var storedTheme = localStorage.getItem('theme');
+      var isDark = storedTheme ? storedTheme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.classList.toggle('dark', isDark);
+    } catch (error) {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+      }
+    }
+  })();
+</script>
 <link href="src/output.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Michroma" />
@@ -14,11 +33,15 @@
 
 <style>
 * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+:root {
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  background: #ffffff;
-  color: #1a1a1a;
 }
 .fade-in {
   animation: fadeIn 1s ease-out forwards;
@@ -46,6 +69,12 @@ body {
   background-clip: text;
   white-space: nowrap;
 }
+html.dark .gradient-text {
+  background: linear-gradient(135deg, #f8fafc 0%, #38bdf8 50%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 nav a {
   font-size: 0.75rem;
   letter-spacing: 0.08em;
@@ -65,9 +94,15 @@ nav a {
   font-weight: 500;
   color: #4b5563;
 }
+html.dark .section-label {
+  color: #94a3b8;
+}
 .divider {
   border: none;
   border-top: 1px solid #e5e7eb;
+}
+html.dark .divider {
+  border-top-color: rgba(148, 163, 184, 0.18);
 }
 .card-hover {
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -75,6 +110,9 @@ nav a {
 .card-hover:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+html.dark .card-hover:hover {
+  box-shadow: 0 24px 70px rgba(2, 6, 23, 0.45);
 }
 .btn-primary {
   display: inline-flex;
@@ -93,6 +131,13 @@ nav a {
   transition: all 0.3s ease;
 }
 .btn-primary:hover { background: #333; transform: translateY(-1px); }
+html.dark .btn-primary {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+html.dark .btn-primary:hover {
+  background: #ffffff;
+}
 .btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -110,11 +155,23 @@ nav a {
   transition: all 0.3s ease;
 }
 .btn-secondary:hover { border-color: #1a1a1a; transform: translateY(-1px); }
+html.dark .btn-secondary {
+  color: #e2e8f0;
+  border-color: rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.4);
+}
+html.dark .btn-secondary:hover {
+  border-color: #e2e8f0;
+  background: rgba(30, 41, 59, 0.75);
+}
 .feature-number {
   font-family: Michroma;
   font-size: 0.8125rem;
   letter-spacing: 0.15em;
   color: #374151;
+}
+html.dark .feature-number {
+  color: #7dd3fc;
 }
 .section-heading {
   font-size: 0.875rem;
@@ -122,6 +179,9 @@ nav a {
   text-transform: uppercase;
   font-weight: 600;
   color: #111827;
+}
+html.dark .section-heading {
+  color: #e2e8f0;
 }
 </style>
 
@@ -133,36 +193,44 @@ nav a {
 </script>
 </head>
 
-<body class="antialiased text-gray-900 bg-white">
+<body class="antialiased text-gray-900 transition-colors duration-300 bg-white dark:bg-zinc-950 dark:text-gray-100">
 
   <!-- Navigation -->
-  <header class="fixed z-40 w-full border-b bg-white/90 backdrop-blur-md border-gray-100/80">
+  <header class="fixed z-40 w-full border-b bg-white/90 backdrop-blur-md border-gray-100/80 dark:border-white/10 dark:bg-zinc-950/85">
     <nav class="px-6 py-5 mx-auto max-w-7xl md:px-10">
       <div class="flex items-center justify-between">
-        <a href="/" class="text-3xl tracking-widest text-gray-900 transition-colors michroma hover:text-gray-700">INNOMEGA</a>
+        <a href="/" class="text-3xl tracking-widest text-gray-900 transition-colors michroma hover:text-gray-700 dark:text-white dark:hover:text-sky-200">INNOMEGA</a>
         <div class="items-center hidden space-x-10 md:flex">
-          <a href="#about" class="text-gray-600 transition-colors hover:text-gray-900">About</a>
-          <a href="#services" class="text-gray-600 transition-colors hover:text-gray-900">Services</a>
-          <a href="blog/" class="text-gray-600 transition-colors hover:text-gray-900">Blog</a>
+          <a href="#about" class="text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">About</a>
+          <a href="#services" class="text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Services</a>
+          <a href="blog/" class="text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Blog</a>
+          <button type="button" data-theme-toggle aria-pressed="false" aria-label="Toggle color theme" class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-2 text-[0.6875rem] tracking-[0.14em] text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900 dark:border-white/15 dark:bg-white/5 dark:text-gray-200 dark:hover:border-white dark:hover:text-white">
+            <span data-theme-icon aria-hidden="true">◐</span>
+            <span data-theme-label>Dark mode</span>
+          </button>
           <a href="#contact" class="btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.75rem;">Inquire</a>
         </div>
         <!-- Mobile -->
         <div class="flex items-center space-x-4 md:hidden">
-          <a href="blog/" class="text-xs tracking-widest text-gray-600 uppercase transition-colors hover:text-gray-900">Blog</a>
+          <button type="button" data-theme-toggle aria-pressed="false" aria-label="Toggle color theme" class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-2 text-[0.6875rem] tracking-[0.14em] text-gray-700 transition-colors hover:border-gray-900 hover:text-gray-900 dark:border-white/15 dark:bg-white/5 dark:text-gray-200 dark:hover:border-white dark:hover:text-white">
+            <span data-theme-icon aria-hidden="true">◐</span>
+            <span data-theme-label>Dark mode</span>
+          </button>
+          <a href="blog/" class="text-xs tracking-widest text-gray-600 uppercase transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Blog</a>
         </div>
       </div>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <section class="flex flex-col items-center justify-center min-h-screen px-6 pb-24 bg-white md:px-10 pt-28">
+  <section class="flex flex-col items-center justify-center min-h-screen px-6 pb-24 bg-white md:px-10 pt-28 dark:bg-zinc-950">
     <div class="max-w-5xl mx-auto text-center fade-in">
       <p class="mb-10 section-label">IT &amp; AI Advisory &mdash; Sweden</p>
-      <h1 class="mb-8 text-gray-900 hero-headline">
+      <h1 class="mb-8 text-gray-900 hero-headline dark:text-white">
         Architects of<br>
         <span class="gradient-text">Digital Excellence</span>
       </h1>
-      <p class="max-w-2xl mx-auto text-lg leading-relaxed text-gray-800 md:text-xl mb-14 fade-in-delay">
+      <p class="max-w-2xl mx-auto text-lg leading-relaxed text-gray-800 md:text-xl mb-14 fade-in-delay dark:text-gray-300">
         We craft sophisticated configurator applications and AI strategies that transform complex requirements into elegant, high-performing experiences.
       </p>
       <div class="flex flex-col items-center justify-center gap-4 sm:flex-row fade-in-delay-2">
@@ -176,33 +244,33 @@ nav a {
   <hr class="divider">
 
   <!-- About Section -->
-  <section id="about" class="py-32 bg-white">
+  <section id="about" class="py-32 bg-white dark:bg-zinc-950">
     <div class="max-w-6xl px-6 mx-auto md:px-10">
       <div class="grid items-start gap-16 md:grid-cols-12">
         <div class="space-y-8 md:col-span-7">
           <p class="section-heading">About</p>
-          <h2 class="text-4xl font-light leading-tight tracking-tight text-gray-900 md:text-5xl">
+          <h2 class="text-4xl font-light leading-tight tracking-tight text-gray-900 md:text-5xl dark:text-white">
             Premium solutions for businesses that demand the extraordinary.
           </h2>
-          <p class="max-w-xl text-lg leading-relaxed text-gray-800">
+          <p class="max-w-xl text-lg leading-relaxed text-gray-800 dark:text-gray-300">
             Founded on principles of quality and exclusivity, INNOMEGA works with a select clientele on configurator solutions and AI strategy that drive measurable outcomes.
           </p>
         </div>
         <div class="pt-2 space-y-10 md:col-span-5 md:pt-16">
-          <div class="pt-8 space-y-2 border-t border-gray-200">
+          <div class="pt-8 space-y-2 border-t border-gray-200 dark:border-white/10">
             <p class="feature-number">01</p>
-            <h3 class="mt-2 text-base font-medium text-gray-900">Exclusive</h3>
-            <p class="text-base leading-relaxed text-gray-800">A limited client roster ensures every engagement receives our full attention and expertise.</p>
+            <h3 class="mt-2 text-base font-medium text-gray-900 dark:text-white">Exclusive</h3>
+            <p class="text-base leading-relaxed text-gray-800 dark:text-gray-300">A limited client roster ensures every engagement receives our full attention and expertise.</p>
           </div>
-          <div class="pt-8 space-y-2 border-t border-gray-200">
+          <div class="pt-8 space-y-2 border-t border-gray-200 dark:border-white/10">
             <p class="feature-number">02</p>
-            <h3 class="mt-2 text-base font-medium text-gray-900">Bespoke</h3>
-            <p class="text-base leading-relaxed text-gray-800">Every solution is designed from first principles to address your specific challenges.</p>
+            <h3 class="mt-2 text-base font-medium text-gray-900 dark:text-white">Bespoke</h3>
+            <p class="text-base leading-relaxed text-gray-800 dark:text-gray-300">Every solution is designed from first principles to address your specific challenges.</p>
           </div>
-          <div class="pt-8 space-y-2 border-t border-gray-200">
+          <div class="pt-8 space-y-2 border-t border-gray-200 dark:border-white/10">
             <p class="feature-number">03</p>
-            <h3 class="mt-2 text-base font-medium text-gray-900">Excellence</h3>
-            <p class="text-base leading-relaxed text-gray-800">Uncompromising quality in every detail, from architecture to final deployment.</p>
+            <h3 class="mt-2 text-base font-medium text-gray-900 dark:text-white">Excellence</h3>
+            <p class="text-base leading-relaxed text-gray-800 dark:text-gray-300">Uncompromising quality in every detail, from architecture to final deployment.</p>
           </div>
         </div>
       </div>
@@ -212,17 +280,17 @@ nav a {
   <hr class="divider">
 
   <!-- Services Section -->
-  <section id="services" class="py-32 bg-white">
+  <section id="services" class="py-32 bg-white dark:bg-zinc-950">
     <div class="max-w-6xl px-6 mx-auto md:px-10">
       <p class="mb-16 section-heading">EXAMPLES OF CLIENT WORK</p>
       <div class="grid gap-6 md:grid-cols-2">
-        <div class="p-12 border border-gray-200 cursor-default card-hover group">
+        <div class="p-12 border border-gray-200 cursor-default card-hover group dark:border-white/10 dark:bg-zinc-900/70">
           <div class="mb-8">
             <div style="width:3rem;height:3px;background:#0369a1;margin-bottom:2rem;"></div>
-            <h3 class="mb-3 text-3xl text-gray-900" style="font-weight:400;">UPS Configurators — Mission-Critical (Nordics)</h3>
-            <p class="leading-relaxed text-gray-800" style="font-size:1.0625rem;">Configurator solutions for selling and supporting uninterrupted power systems in demanding environments.</p>
+            <h3 class="mb-3 text-3xl text-gray-900 dark:text-white" style="font-weight:400;">UPS Configurators — Mission-Critical (Nordics)</h3>
+            <p class="leading-relaxed text-gray-800 dark:text-gray-300" style="font-size:1.0625rem;">Configurator solutions for selling and supporting uninterrupted power systems in demanding environments.</p>
           </div>
-          <ul class="space-y-4 text-gray-900" style="font-size:0.9375rem;font-weight:500;">
+          <ul class="space-y-4 text-gray-900 dark:text-gray-100" style="font-size:0.9375rem;font-weight:500;">
             <li class="flex items-center gap-3">
               <span style="width:6px;height:6px;border-radius:50%;background:#0369a1;flex-shrink:0;"></span>
               Sales configurators with electrical &amp; mechanical compatibility checks
@@ -241,13 +309,13 @@ nav a {
             <a href="blog/posts/ups-configurator-case/" class="btn-secondary">Read case study</a>
           </div>
         </div>
-        <div class="p-12 border border-gray-200 cursor-default card-hover group">
+        <div class="p-12 border border-gray-200 cursor-default card-hover group dark:border-white/10 dark:bg-zinc-900/70">
           <div class="mb-8">
             <div style="width:3rem;height:3px;background:#0369a1;margin-bottom:2rem;"></div>
-            <h3 class="mb-3 text-3xl text-gray-900" style="font-weight:400;">Firetrucks &amp; Custom Specialty Vehicles — (Germany)</h3>
-            <p class="leading-relaxed text-gray-800" style="font-size:1.0625rem;">End-to-end configurators and digital tools for specifying, quoting and managing custom emergency vehicle builds.</p>
+            <h3 class="mb-3 text-3xl text-gray-900 dark:text-white" style="font-weight:400;">Firetrucks &amp; Custom Specialty Vehicles — (Germany)</h3>
+            <p class="leading-relaxed text-gray-800 dark:text-gray-300" style="font-size:1.0625rem;">End-to-end configurators and digital tools for specifying, quoting and managing custom emergency vehicle builds.</p>
           </div>
-          <ul class="space-y-4 text-gray-900" style="font-size:0.9375rem;font-weight:500;">
+          <ul class="space-y-4 text-gray-900 dark:text-gray-100" style="font-size:0.9375rem;font-weight:500;">
             <li class="flex items-center gap-3">
               <span style="width:6px;height:6px;border-radius:50%;background:#0369a1;flex-shrink:0;"></span>
               Modular build options and compatibility validation
@@ -272,12 +340,12 @@ nav a {
   <hr class="divider">
 
   <!-- Blog Teaser Section -->
-  <section class="py-32 bg-gray-50">
+  <section class="py-32 bg-gray-50 dark:bg-zinc-900/50">
     <div class="max-w-6xl px-6 mx-auto md:px-10">
       <div class="grid items-end gap-12 mb-16 md:grid-cols-12">
         <div class="md:col-span-8">
           <p class="mb-6 section-heading">AI Business Intelligence</p>
-          <h2 class="text-4xl font-light leading-tight tracking-tight text-gray-900 md:text-5xl">
+          <h2 class="text-4xl font-light leading-tight tracking-tight text-gray-900 md:text-5xl dark:text-white">
             Insights on AI&rsquo;s impact on business &mdash; written for leaders, not engineers.
           </h2>
         </div>
@@ -287,25 +355,25 @@ nav a {
       </div>
 
       <!-- Featured Post Card -->
-      <a href="blog/posts/ai-replaces-planning-meetings/" class="block p-10 bg-white border border-gray-200 card-hover md:p-14 group">
+      <a href="blog/posts/ai-replaces-planning-meetings/" class="block p-10 bg-white border border-gray-200 card-hover md:p-14 group dark:border-white/10 dark:bg-zinc-900/70">
         <div class="grid gap-8 md:grid-cols-12">
           <div class="md:col-span-8">
             <div class="flex items-center gap-4 mb-6">
               <span class="section-label" style="color:#0369a1;">Featured</span>
-              <span class="text-gray-300">&middot;</span>
+              <span class="text-gray-300 dark:text-white/20">&middot;</span>
               <span class="section-label">5 min read</span>
-              <span class="text-gray-300">&middot;</span>
+              <span class="text-gray-300 dark:text-white/20">&middot;</span>
               <span class="section-label">Feb 2026</span>
             </div>
-            <h3 class="mb-4 text-2xl font-light leading-tight text-gray-900 transition-colors md:text-3xl group-hover:text-sky-700">
+            <h3 class="mb-4 text-2xl font-light leading-tight text-gray-900 transition-colors md:text-3xl group-hover:text-sky-700 dark:text-white dark:group-hover:text-sky-300">
               From Planning Meetings to Working Software: How AI Is Rewriting Business Roles
             </h3>
-            <p class="leading-relaxed text-gray-800">
+            <p class="leading-relaxed text-gray-800 dark:text-gray-300">
               The traditional software development cycle is being compressed dramatically. Planning meetings are becoming active development sessions — and the businesses that understand this shift will have a structural competitive advantage.
             </p>
           </div>
           <div class="flex md:col-span-4 md:justify-end md:items-start">
-            <span class="mt-1 text-sm font-medium transition-all text-sky-600 group-hover:gap-2">Read article &rarr;</span>
+            <span class="mt-1 text-sm font-medium transition-all text-sky-600 group-hover:gap-2 dark:text-sky-300">Read article &rarr;</span>
           </div>
         </div>
       </a>
@@ -315,14 +383,14 @@ nav a {
   <hr class="divider">
 
   <!-- Contact CTA -->
-  <section id="contact" class="py-40 bg-white">
+  <section id="contact" class="py-40 bg-white dark:bg-zinc-950">
     <div class="max-w-4xl px-6 mx-auto text-center md:px-10">
       <p class="mb-10 section-label">Contact</p>
-      <h2 class="mb-8 text-5xl font-light leading-tight tracking-tight text-gray-900 md:text-7xl">
+      <h2 class="mb-8 text-5xl font-light leading-tight tracking-tight text-gray-900 md:text-7xl dark:text-white">
         Let&rsquo;s build something<br>
         <span class="gradient-text">extraordinary.</span>
       </h2>
-      <p class="max-w-xl mx-auto text-lg leading-relaxed text-gray-800 mb-14">
+      <p class="max-w-xl mx-auto text-lg leading-relaxed text-gray-800 mb-14 dark:text-gray-300">
         We&rsquo;re accepting a limited number of projects for 2026/27.
       </p>
       <form name="contact" method="POST" action="/contact-success/" data-netlify="true" netlify-honeypot="bot-field" class="max-w-2xl mx-auto text-left">
@@ -335,20 +403,20 @@ nav a {
         </p>
         <div class="grid gap-6 md:grid-cols-2">
           <label class="block">
-            <span class="block mb-2 text-xs tracking-[0.18em] text-gray-700 uppercase">Name</span>
-            <input type="text" name="name" required class="w-full px-4 py-4 text-base text-gray-900 bg-white border border-gray-300 rounded-none focus:outline-none focus:border-gray-900">
+            <span class="block mb-2 text-xs tracking-[0.18em] text-gray-700 uppercase dark:text-gray-300">Name</span>
+            <input type="text" name="name" required class="w-full px-4 py-4 text-base text-gray-900 bg-white border border-gray-300 rounded-none focus:outline-none focus:border-gray-900 dark:border-white/15 dark:bg-zinc-950 dark:text-white dark:focus:border-sky-400">
           </label>
           <label class="block">
-            <span class="block mb-2 text-xs tracking-[0.18em] text-gray-700 uppercase">Email</span>
-            <input type="email" name="email" required class="w-full px-4 py-4 text-base text-gray-900 bg-white border border-gray-300 rounded-none focus:outline-none focus:border-gray-900">
+            <span class="block mb-2 text-xs tracking-[0.18em] text-gray-700 uppercase dark:text-gray-300">Email</span>
+            <input type="email" name="email" required class="w-full px-4 py-4 text-base text-gray-900 bg-white border border-gray-300 rounded-none focus:outline-none focus:border-gray-900 dark:border-white/15 dark:bg-zinc-950 dark:text-white dark:focus:border-sky-400">
           </label>
         </div>
         <label class="block mt-6">
-          <span class="block mb-2 text-xs tracking-[0.18em] text-gray-700 uppercase">How can we help?</span>
-          <textarea name="message" rows="6" required class="w-full px-4 py-4 text-base text-gray-900 bg-white border border-gray-300 rounded-none resize-y focus:outline-none focus:border-gray-900"></textarea>
+          <span class="block mb-2 text-xs tracking-[0.18em] text-gray-700 uppercase dark:text-gray-300">How can we help?</span>
+          <textarea name="message" rows="6" required class="w-full px-4 py-4 text-base text-gray-900 bg-white border border-gray-300 rounded-none resize-y focus:outline-none focus:border-gray-900 dark:border-white/15 dark:bg-zinc-950 dark:text-white dark:focus:border-sky-400"></textarea>
         </label>
         <div class="flex flex-col items-start justify-between gap-6 mt-8 md:flex-row md:items-center">
-          <p class="max-w-md text-sm leading-relaxed text-gray-700">
+          <p class="max-w-md text-sm leading-relaxed text-gray-700 dark:text-gray-300">
             Messages go straight to our inbox. A hidden bot field helps filter automated spam.
           </p>
           <button type="submit" class="btn-primary" style="font-size:0.875rem;padding:1rem 2.5rem;">
@@ -360,25 +428,88 @@ nav a {
   </section>
 
   <!-- Footer -->
-  <footer class="py-10 bg-white border-t border-gray-100">
+  <footer class="py-10 bg-white border-t border-gray-100 dark:border-white/10 dark:bg-zinc-950">
     <div class="flex flex-col items-center justify-between max-w-6xl gap-4 px-6 mx-auto md:px-10 md:flex-row">
-      <a href="/" class="text-sm tracking-widest text-gray-900 michroma">INNOMEGA</a>
+      <a href="/" class="text-sm tracking-widest text-gray-900 michroma dark:text-white">INNOMEGA</a>
       <div class="flex items-center gap-8">
-        <a href="blog/" class="text-xs tracking-widest text-gray-800 uppercase transition-colors hover:text-gray-900">Blog</a>
-        <a href="#contact" class="text-xs tracking-widest text-gray-800 uppercase transition-colors hover:text-gray-900">Contact</a>
+        <a href="blog/" class="text-xs tracking-widest text-gray-800 uppercase transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Blog</a>
+        <a href="#contact" class="text-xs tracking-widest text-gray-800 uppercase transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Contact</a>
       </div>
-      <p class="text-xs text-gray-600">© 2026 INNOMEGA AB. All rights reserved.</p>
+      <p class="text-xs text-gray-600 dark:text-gray-400">© 2026 INNOMEGA AB. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
+    (function () {
+      var storageKey = 'theme';
+      var root = document.documentElement;
+      var toggles = document.querySelectorAll('[data-theme-toggle]');
+      var media = window.matchMedia('(prefers-color-scheme: dark)');
+
+      function readStoredTheme() {
+        try {
+          return localStorage.getItem(storageKey);
+        } catch (error) {
+          return null;
+        }
+      }
+
+      function getPreferredTheme() {
+        var storedTheme = readStoredTheme();
+        if (storedTheme === 'light' || storedTheme === 'dark') return storedTheme;
+        return media.matches ? 'dark' : 'light';
+      }
+
+      function updateToggleUI(isDark) {
+        toggles.forEach(function (toggle) {
+          toggle.setAttribute('aria-pressed', String(isDark));
+          var label = toggle.querySelector('[data-theme-label]');
+          var icon = toggle.querySelector('[data-theme-icon]');
+          if (label) label.textContent = isDark ? 'Light mode' : 'Dark mode';
+          if (icon) icon.textContent = isDark ? '☀' : '◐';
+        });
+      }
+
+      function applyTheme(theme) {
+        var isDark = theme === 'dark';
+        root.classList.toggle('dark', isDark);
+        updateToggleUI(isDark);
+      }
+
+      function storeTheme(theme) {
+        try {
+          localStorage.setItem(storageKey, theme);
+        } catch (error) {
+          // Ignore storage failures and keep the in-memory theme applied.
+        }
+      }
+
+      applyTheme(getPreferredTheme());
+
+      toggles.forEach(function (toggle) {
+        toggle.addEventListener('click', function () {
+          var nextTheme = root.classList.contains('dark') ? 'light' : 'dark';
+          storeTheme(nextTheme);
+          applyTheme(nextTheme);
+        });
       });
-    });
+
+      if (media.addEventListener) {
+        media.addEventListener('change', function (event) {
+          var storedTheme = readStoredTheme();
+          if (storedTheme === 'light' || storedTheme === 'dark') return;
+          applyTheme(event.matches ? 'dark' : 'light');
+        });
+      }
+
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          var target = document.querySelector(this.getAttribute('href'));
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    })();
   </script>
 </body>
 </html>
